@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Question} from "./types";
+import {Question, Result} from "./types";
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,20 @@ export class AppService {
 
   public gotoPage = (questionNumber: number) => {
     this.currentPageIndex = questionNumber - 1;
+  }
+
+  public getResults = (): Result => {
+    let correctAnswers = 0;
+    this.questions.forEach(r => {
+      if (r.answer === r.correctAnswer) {
+        correctAnswers++;
+      }
+    });
+    const percentage = `${((correctAnswers / this.questions.length) * 100).toFixed(2)} %`;
+    return {
+      totalQuestions: this.questions.length,
+      correctAnswers,
+      percentage
+    }
   }
 }
