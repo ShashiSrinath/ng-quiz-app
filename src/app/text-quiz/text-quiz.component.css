@@ -1,0 +1,13 @@
+.table{
+    margin-left: 30%;
+    margin-top: 10%;
+}
+.table textarea{
+    width: 100%;
+    border: 0;
+    height: 40px;
+}
+.btn{
+    position: absolute;
+    margin-left:85%;
+}
