@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Question} from "./types";
 
 @Injectable({
@@ -14,14 +14,18 @@ export class AppService {
 
 
   public gotoNextPage = () => {
-    if(this.currentPageIndex+1 < this.questions.length) {
+    if (this.currentPageIndex + 1 < this.questions.length) {
       this.currentPageIndex++;
     }
   }
 
   public gotoPreviousPage = () => {
-    if(this.currentPageIndex > 0) {
+    if (this.currentPageIndex > 0) {
       this.currentPageIndex--;
     }
+  }
+
+  public gotoPage = (questionNumber: number) => {
+    this.currentPageIndex = questionNumber - 1;
   }
 }
