@@ -29,13 +29,13 @@ export class AppService {
           'Ada Byron',
           'Blaise Pascal',
         ],
-        question: '--------- is the father of computer.',
+        question: '_______ is the father of computer.',
       },
       {
         type: 'mcq',
         correctAnswer: 'JAVA',
         choices: ['English', 'JAVA', 'HTML', 'Tamil'],
-        question: 'What is Computer programming language?',
+        question: '_______ is a Computer programming language',
       },
     ];
     this.currentPageIndex = 0;
