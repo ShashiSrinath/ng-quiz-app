@@ -9,29 +9,37 @@ export class AppService {
   currentPageIndex: number;
 
   constructor() {
-    this.questions = [{
-      type: 'text',
-      correctAnswer: 'Intel 4004',
-      question: 'What is the Name of the First Microprocessor?',
-    },
-    {
-      type: 'text',
-      correctAnswer: 'Java is called platform independent because of its byte codes which can run on any system irrespective of its underlying operating system.',
-      question: 'Why Java is platform independent?',
-    }, {
-      type: 'mcq',
-      correctAnswer: 'Charles Babbage',
-      choices: ['Herman Hollerith','Charles Babbage','Ada Byron','Blaise Pascal'], 
-      question: '--------- is the father of computer.',
-    }
-    , {
-      type: 'mcq',
-      correctAnswer: 'JAVA',
-      choices: ['English','JAVA','HTML','Tamil'],
-      question: 'What is Computer programming language?',
-    }]
+    this.questions = [
+      {
+        type: 'text',
+        correctAnswer: 'Intel 4004',
+        question: 'What is the Name of the First Microprocessor?',
+      },
+      {
+        type: 'text',
+        correctAnswer:
+          'Java is called platform independent because of its byte codes which can run on any system irrespective of its underlying operating system.',
+        question: 'Why Java is platform independent?',
+      },
+      {
+        type: 'mcq',
+        correctAnswer: 'Charles Babbage',
+        choices: [
+          'Herman Hollerith',
+          'Charles Babbage',
+          'Ada Byron',
+          'Blaise Pascal',
+        ],
+        question: '--------- is the father of computer.',
+      },
+      {
+        type: 'mcq',
+        correctAnswer: 'JAVA',
+        choices: ['English', 'JAVA', 'HTML', 'Tamil'],
+        question: 'What is Computer programming language?',
+      },
+    ];
     this.currentPageIndex = 0;
-
   }
 
   public gotoNextPage = () => {
@@ -47,7 +55,7 @@ export class AppService {
   };
 
   public gotoPage = (questionNumber: number) => {
-    this.currentPageIndex = questionNumber - 1;
+    this.currentPageIndex = questionNumber;
   };
 
   public getResults = (): Result => {
