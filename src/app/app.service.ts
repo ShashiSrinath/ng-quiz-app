@@ -8,7 +8,10 @@ export class AppService {
   questions: Question[];
   currentPageIndex: number;
 
-  constructor() { }
+  constructor() {
+    //todo: initialize questions array
+  }
+
 
   public gotoNextPage = () => {
     if(this.currentPageIndex+1 < this.questions.length) {
