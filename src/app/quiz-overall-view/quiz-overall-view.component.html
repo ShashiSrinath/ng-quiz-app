@@ -1,0 +1,9 @@
+<div
+  class="container div-btn"
+  [ngClass]="
+    quizNumber === appService.currentPageIndex ? 'bg-success' : 'bg-secondary'
+  "
+  (click)="clickQuestion()"
+>
+  <p>{{ quizNumber + 1 }}</p>
+</div>

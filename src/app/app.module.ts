@@ -6,20 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { QuizResultComponent } from './quiz-result/quiz-result.component';
-
+import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
-    AppComponent,
-    QuizResultComponent
+    FooterComponent,
+    QuizResultComponent,
+    QuizOverallViewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
