@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { Result } from '../types';
 
 @Component({
   selector: 'app-quiz-result',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizResultComponent implements OnInit {
 
-  constructor() { }
+  result: Result;
+
+  constructor(appService: AppService) { 
+    this.result = appService.getResults();
+  }
 
   ngOnInit(): void {
   }
