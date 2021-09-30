@@ -4,10 +4,11 @@ export type Question = {
   correctAnswer: string;
   answered?: boolean;
   answer?: string;
+  choices?: string[];
 } | {
   type: 'mcq'
   question: string;
-  choices: string[]
+  choices: string[];
   correctAnswer: string;
   answered?: boolean;
   answer?: string;
