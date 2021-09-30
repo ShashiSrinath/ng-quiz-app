@@ -1,12 +1,11 @@
-
 <div class="mcq_quastion" *ngIf="question?.type==='mcq'">
-    <div class="questions">
-        <h2>{{question?.question}}</h2>
-        <ul class="list-group" *ngFor="let quiz of question?.choices">
-            <li class="list-group-item">
-                <input type="radio" name="options" >
-                {{quiz}}
-            </li>
-        </ul>
-    </div>
+  <div class="questions">
+    <h2>{{question?.question}}</h2>
+    <ul class="list-group" *ngFor="let quiz of question?.choices">
+      <li class="list-group-item">
+        <input type="radio" name="options" [value]="quiz" [(ngModel)]="answer" (ngModelChange)="onChange($event)">
+        {{quiz}}
+      </li>
+    </ul>
+  </div>
 </div>
