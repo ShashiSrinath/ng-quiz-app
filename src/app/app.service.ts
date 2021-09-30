@@ -9,7 +9,18 @@ export class AppService {
   currentPageIndex: number;
 
   constructor() {
-    //todo: initialize questions array
+    this.questions = [{
+      type: 'text',
+      correctAnswer: 'correct',
+      question: 'type the word correct',
+    }, {
+      type: 'mcq',
+      correctAnswer: '2',
+      choices: ['1','2','3','4'],
+      question: 'select 2',
+    }]
+    this.currentPageIndex = 0;
+
   }
 
 
