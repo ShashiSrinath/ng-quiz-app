@@ -1,17 +1,10 @@
 export type Question = {
-  type: 'text'
+  type: 'text' | 'mcq'
   question: string;
-  correctAnswer: string;
-  answered?: boolean;
-  answer?: string;
   choices?: string[];
-} | {
-  type: 'mcq'
-  question: string;
-  choices: string[];
   correctAnswer: string;
   answered?: boolean;
-  answer?: string;
+  answer?: string
 }
 
 export type Result = {

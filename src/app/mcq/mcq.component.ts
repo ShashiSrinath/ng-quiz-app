@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
-import { Question } from '../types';
+import {Component, Input, OnInit} from '@angular/core';
+import {Question} from '../types';
 
 @Component({
   selector: 'app-mcq',
@@ -9,15 +8,18 @@ import { Question } from '../types';
 })
 export class McqComponent implements OnInit {
 
-@Input() question?:Question;
+  @Input() question?: Question;
+  answer: string = '';
 
-  constructor(
-   
-  ) {this.getQus() }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-getQus(){
-  console.log(this.question?.type)
-}
+
+  onChange = (_e: any) => {
+    if (this.question) {
+      this.question.answer = this.answer;
+    }
+  }
 }
