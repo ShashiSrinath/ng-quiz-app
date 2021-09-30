@@ -12,3 +12,9 @@ export type Question = {
   answered: boolean;
   answer: string;
 }
+
+export type Result = {
+  totalQuestions: number;
+  correctAnswers: number;
+  percentage: string;
+}
