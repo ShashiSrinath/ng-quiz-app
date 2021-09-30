@@ -22,6 +22,16 @@
     </div>
   </div>
   <div class="col-4">
-    <!-- quiz navigation insert here -->
+    <div class="row">
+      <h1>Questions</h1>
+    </div>
+    <div class="row">
+      <div class="d-flex question-wrap">
+        <app-quiz-overall-view
+          *ngFor="let app of appService.questions; let i = index"
+          [quizNumber]="i"
+        ></app-quiz-overall-view>
+      </div>
+    </div>
   </div>
 </div>
