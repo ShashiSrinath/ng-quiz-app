@@ -16,9 +16,15 @@ export class AppService {
         question: '50 % 20 = ?',
       },
       {
-        type: 'text',
+        type: 'mcq',
         correctAnswer:'9',
         question: '6 / 2 x (1 + 2) = ?',
+        choices: [
+          '9',
+          '0',
+          '6',
+          '1',
+        ]
       },
       {
         type: 'mcq',
