@@ -6,7 +6,19 @@ import {Question} from "./types";
 })
 export class AppService {
   questions: Question[];
-
+  currentPageIndex: number;
 
   constructor() { }
+
+  public gotoNextPage = () => {
+    if(this.currentPageIndex+1 < this.questions.length) {
+      this.currentPageIndex++;
+    }
+  }
+
+  public gotoPreviousPage = () => {
+    if(this.currentPageIndex > 0) {
+      this.currentPageIndex--;
+    }
+  }
 }
