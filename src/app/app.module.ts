@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { QuizResultComponent } from './quiz-result/quiz-result.component';
 import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.component';
+import { McqComponent } from './mcq/mcq.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +15,7 @@ import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.
     FooterComponent,
     QuizResultComponent,
     QuizOverallViewComponent,
+    McqComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

@@ -22,7 +22,7 @@ export class AppService {
         question: 'select 2',
       },
     ];
-    this.currentPageIndex = 0;
+    this.currentPageIndex = 1;
   }
 
   public gotoNextPage = () => {
