@@ -12,14 +12,13 @@ export class AppService {
     this.questions = [
       {
         type: 'text',
-        correctAnswer: 'Intel 4004',
-        question: 'What is the Name of the First Microprocessor?',
+        correctAnswer: '10',
+        question: '50 % 20 = ?',
       },
       {
         type: 'text',
-        correctAnswer:
-          'Java is called platform independent because of its byte codes which can run on any system irrespective of its underlying operating system.',
-        question: 'Why Java is platform independent?',
+        correctAnswer:'9',
+        question: '6 / 2 x (1 + 2) = ?',
       },
       {
         type: 'mcq',
