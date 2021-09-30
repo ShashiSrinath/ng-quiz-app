@@ -7,7 +7,7 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ng-quiz-app';
+  title = 'Sample Quiz';
 
   constructor(public appService: AppService) {}
 }
