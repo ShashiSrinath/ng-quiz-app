@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { QuizResultComponent } from './quiz-result/quiz-result.component';
 import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.component';
 import { McqComponent } from './mcq/mcq.component';
+import { TextQuizComponent } from './text-quiz/text-quiz.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,8 @@ import { McqComponent } from './mcq/mcq.component';
     QuizResultComponent,
     QuizOverallViewComponent,
     McqComponent
+    AppComponent,
+    TextQuizComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

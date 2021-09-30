@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr [(ngModel)]="questions">
+        <th scope="col">1</th>
+        <th scope="col">{{questions.question}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td><textarea type="text" placeholder="Enter the Answer" ></textarea></td> 
+      </tr>
+      
+    </tbody>
+    <button class="btn btn-success" (click)="submit()">submit</button>
+  </table>
