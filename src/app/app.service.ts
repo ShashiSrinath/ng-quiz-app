@@ -42,10 +42,14 @@ export class AppService {
     this.currentPageIndex = 0;
   }
 
+  // public gotoNextPage = () => {
+  //   if (this.currentPageIndex + 1 < this.questions.length) {
+  //     this.currentPageIndex++;
+  //   }
+  // };
+
   public gotoNextPage = () => {
-    if (this.currentPageIndex + 1 < this.questions.length) {
-      this.currentPageIndex++;
-    }
+    this.currentPageIndex++;
   };
 
   public gotoPreviousPage = () => {

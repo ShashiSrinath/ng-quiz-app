@@ -14,6 +14,7 @@ export class QuizOverallViewComponent implements OnInit {
   ngOnInit(): void {}
 
   clickQuestion() {
+    console.log(this.quizNumber);
     this.appService.gotoPage(this.quizNumber);
   }
 }

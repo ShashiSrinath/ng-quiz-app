@@ -1,10 +1,10 @@
-<div class="containter-fluid bg-light">
+<div class="containter-fluid">
     <div class="w-100 d-flex justify-content-between">
         <div class="previous">
-            <button class="btn btn-primary btn-md" onclick="appService.gotoPreviousPage()">Previous</button>
+            <button class="btn btn-primary btn-md" (click)="appService.gotoPreviousPage()">Previous</button>
         </div>
         <div class="next">
-            <button class="btn btn-primary btn-md" onclick="appService.gotoNextPage()">Next</button>
+            <button class="btn btn-primary btn-md" (click)="appService.gotoNextPage()">Next</button>
         </div>
      </div>
 </div>

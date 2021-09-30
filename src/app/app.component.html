@@ -4,39 +4,37 @@
 </div>
 
 <!-- quiz -->
-<div class="row">
-  <div class="col-8">
-    <div class="container">
+<div class="container-fluid">
+  <div class="row" *ngIf="appService.currentPageIndex < appService.questions.length">
+    <div class="col-10">
+      <div class="container p-3">
+        <div *ngIf="appService.questions[appService.currentPageIndex].type === 'text'">
+          <app-text-quiz [question]="appService.questions[appService.currentPageIndex]"></app-text-quiz>
+        </div>
+        <div *ngIf="appService.questions[appService.currentPageIndex].type === 'mcq'">
+          <app-mcq [question]="appService.questions[appService.currentPageIndex]"></app-mcq>
+        </div>
+      </div>
+      <div class="container">
+        <div class="container-fluid">
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
       <div>
-        <app-text-quiz [question]="appService.questions[appService.currentPageIndex]"></app-text-quiz>
-        <app-mcq [question]="appService.questions[appService.currentPageIndex]"></app-mcq>
+        <h1>Questions</h1>
       </div>
       <div>
-        <!-- mcq quiz insert here -->
-      </div>
-    </div>
-    <div class="container">
-      <app-footer></app-footer>
-      <div class="container-fluid">
-        <!-- footer goes here -->
-      </div>
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="row">
-      <h1>Questions</h1>
-    </div>
-    <div class="row">
-      <div class="d-flex question-wrap">
-        <app-quiz-overall-view
-          *ngFor="let app of appService.questions; let i = index"
-          [quizNumber]="i"
-        ></app-quiz-overall-view>
+        <div class="d-flex question-wrap">
+          <app-quiz-overall-view *ngFor="let app of appService.questions; let i = index" [quizNumber]="i"></app-quiz-overall-view>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<!-- result page -->
+<div class="container" *ngIf="appService.currentPageIndex === appService.questions.length">
   <app-quiz-result></app-quiz-result>
 </div>
