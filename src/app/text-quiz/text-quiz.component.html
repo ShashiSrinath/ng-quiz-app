@@ -1,8 +1,7 @@
 <table class="table">
     <thead>
-      <tr [(ngModel)]="questions">
-        <th scope="col">1</th>
-        <th scope="col">{{questions.question}}</th>
+      <tr >
+        <th scope="col">{{question?.question}}</th>
       </tr>
     </thead>
     <tbody>
@@ -12,5 +11,4 @@
       </tr>
       
     </tbody>
-    <button class="btn btn-success" (click)="submit()">submit</button>
   </table>

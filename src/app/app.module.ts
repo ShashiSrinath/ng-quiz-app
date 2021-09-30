@@ -17,8 +17,7 @@ import { TextQuizComponent } from './text-quiz/text-quiz.component';
     FooterComponent,
     QuizResultComponent,
     QuizOverallViewComponent,
-    McqComponent
-    AppComponent,
+    McqComponent,
     TextQuizComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
