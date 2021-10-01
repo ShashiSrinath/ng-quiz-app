@@ -1,6 +1,6 @@
 import { IQuestion } from '../question/question.model';
 import { IAnswerSheet } from '../answer-sheet/answer-sheet.model';
-import { Document } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
 
 export type IQuiz = {
     author: {
@@ -11,8 +11,6 @@ export type IQuiz = {
 };
 
 export type IQuizModel = IQuiz & Document;
-
-import { Schema, model } from 'mongoose';
 
 export const QuizModel = model(
     'Quiz',

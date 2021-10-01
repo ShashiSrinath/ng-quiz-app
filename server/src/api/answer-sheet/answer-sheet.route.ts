@@ -1,5 +1,5 @@
 // create a answer sheet
 
-// submit a single answer
+// submit a single answer (put)
 
-// finish tests
+// finish answer sheet

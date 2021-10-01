@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 export type IAnswerSheet = {
     quizId: string;
@@ -15,14 +16,12 @@ export type IAnswerSheet = {
 
 export type IAnswerModel = IAnswerSheet & Document;
 
-import { Schema, model } from 'mongoose';
-
 export const AnswerSheetModel = model(
     'AnswerSheet',
     new Schema({
         quizId: {
             type: Schema.Types.ObjectId,
-            ref: 'quiz',
+            ref: 'Quiz',
         },
         status: {
             type: String,
@@ -37,7 +36,7 @@ export const AnswerSheetModel = model(
             {
                 question: {
                     type: Schema.Types.ObjectId,
-                    ref: 'question',
+                    ref: 'Question',
                 },
                 answer: {
                     type: String,
