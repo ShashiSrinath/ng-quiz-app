@@ -27,15 +27,17 @@ export const AnswerSheetModel = model(
             type: String,
             required: true,
         },
-        answers: {
-            question: {
-                type: Schema.Types.ObjectId,
-                ref: 'question',
+        answers: [
+            {
+                question: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'question',
+                },
+                answer: {
+                    type: String,
+                    required: true,
+                },
             },
-            answer: {
-                type: String,
-                required: true,
-            },
-        },
+        ],
     })
 );
