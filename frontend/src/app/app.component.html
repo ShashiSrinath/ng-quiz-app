@@ -1,14 +1,11 @@
-<!-- header section 
+<app-quiz-join></app-quiz-join>
+
+<!-- header section -->
 <div class="container-fluid">
   <app-header></app-header>
 </div>
--->
-<app-quiz-join></app-quiz-join>
-<!-- quiz 
 
-    <app-home></app-home>
-    <app-main-footer></app-main-footer>
-
+<!-- quiz -->
 <div class="container-fluid">
   <div class="row" *ngIf="appService.currentPageIndex < appService.questions.length">
     <div class="col-10">
@@ -38,8 +35,13 @@
     </div>
   </div>
 </div>
--->
+
 <!-- result page -->
 <div class="container" *ngIf="appService.currentPageIndex === appService.questions.length">
   <app-quiz-result></app-quiz-result>
+</div>
+
+<!-- quiz uploader page -->
+<div class="container mt-3">
+  <app-quiz-upload></app-quiz-upload>
 </div>
