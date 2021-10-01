@@ -8,7 +8,6 @@ import router from './router';
 
 const app = express();
 
-
 /* apply middleware */
 app.use(json());
 app.use(urlencoded({ extended: true }));
@@ -33,7 +32,7 @@ app.use(
 declare module 'express-session' {
     interface SessionData {
         user?: {
-            id: number;
+            id: string;
             type: string;
         };
     }
@@ -51,7 +50,7 @@ app.use((err, req, res, _next) => {
         res.status(500).send(
             process.env.NODE_ENV === 'development'
                 ? err
-                : 'Internal Server Error',
+                : 'Internal Server Error'
         );
     }
 });

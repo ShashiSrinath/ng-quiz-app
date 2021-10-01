@@ -3,6 +3,7 @@ import { IAnswerSheet } from '../answer-sheet/answer-sheet.model';
 import { Document, model, Schema } from 'mongoose';
 
 export type IQuiz = {
+    title: string;
     author: {
         _id: string;
     };
@@ -15,13 +16,13 @@ export type IQuizModel = IQuiz & Document;
 export const QuizModel = model(
     'Quiz',
     new Schema({
-        author: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
         title: {
             type: String,
             required: true,
+        },
+        author: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
         },
         questions: [
             {
