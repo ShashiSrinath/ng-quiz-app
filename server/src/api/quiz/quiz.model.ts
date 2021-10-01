@@ -7,7 +7,9 @@ export type IQuiz = {
     author: {
         _id: string;
     };
-    questions: IQuestion[];
+    questions: {
+        [questionNumber: string]: IQuestion;
+    };
     answerSheets: IAnswerSheet[];
 };
 
@@ -24,12 +26,13 @@ export const QuizModel = model(
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
-        questions: [
-            {
+        questions: {
+            type: Map,
+            of: {
                 type: Schema.Types.ObjectId,
                 ref: 'Question',
             },
-        ],
+        },
         answerSheets: [
             {
                 type: Schema.Types.ObjectId,

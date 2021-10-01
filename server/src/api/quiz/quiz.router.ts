@@ -25,6 +25,15 @@ router.post('/create-from-json', async (req, res, next) => {
 // create a quiz by excel sheet
 
 // view quiz - ( for student)
+router.get('/as-student/:quizId', async (req, res, next) => {
+    try {
+        res.status(200).json(
+            await quizService.getQuizAsStudent(req.params.quizId)
+        );
+    } catch (e) {
+        next(e);
+    }
+});
 
 // view quiz status - ( for owner )
 
