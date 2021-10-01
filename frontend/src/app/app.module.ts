@@ -10,6 +10,8 @@ import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.
 import { McqComponent } from './mcq/mcq.component';
 import { TextQuizComponent } from './text-quiz/text-quiz.component';
 import {FormsModule} from "@angular/forms";
+import { HomeComponent } from './home/home.component';
+import { AllQuizComponent } from './all-quiz/all-quiz.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {FormsModule} from "@angular/forms";
     QuizResultComponent,
     QuizOverallViewComponent,
     McqComponent,
-    TextQuizComponent
+    TextQuizComponent,
+    HomeComponent,
+    AllQuizComponent
   ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
