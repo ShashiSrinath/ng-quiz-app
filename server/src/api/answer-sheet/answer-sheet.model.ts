@@ -3,13 +3,14 @@ import { Document } from 'mongoose';
 export type IAnswerSheet = {
     quizId: string;
     userCode: string;
+    status: string;
     answers: {
         question: {
             _id: string;
             questionNumber: string;
         };
         answer: string;
-    };
+    }[];
 };
 
 export type IAnswerModel = IAnswerSheet & Document;
@@ -22,6 +23,11 @@ export const AnswerSheetModel = model(
         quizId: {
             type: Schema.Types.ObjectId,
             ref: 'quiz',
+        },
+        status: {
+            type: String,
+            enum: ['Ongoing', 'Finished'],
+            required: true,
         },
         userCode: {
             type: String,
