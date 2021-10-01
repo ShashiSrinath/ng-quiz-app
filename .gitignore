@@ -1,4 +1,8 @@
 
 .idea/
+<<<<<<< Updated upstream
 
 server/.env
+=======
+node_modules
+>>>>>>> Stashed changes
