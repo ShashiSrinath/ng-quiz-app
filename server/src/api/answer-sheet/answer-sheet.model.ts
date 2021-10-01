@@ -6,10 +6,9 @@ export type IAnswerSheet = {
     userCode: string;
     status: string;
     answers: {
-        [key: string]: {
+        [questionNumber: string]: {
             question: {
                 _id: string;
-                questionNumber: string;
             };
             answer: string;
         };
