@@ -9,6 +9,7 @@ export const initDBConnection = async (): Promise<void> => {
         await connect(config.DB_URI);
         logger.info('database connection successful');
     } catch (e) {
+        console.log(e)
         logger.error(e);
         //crash the process if database is not connected
         process.exit(1001);

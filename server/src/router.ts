@@ -1,11 +1,9 @@
 import { Router } from 'express';
-import booksRouter from './api/book/book.router';
-
+import authRouter from './api/auth/auth.router';
 
 const router = Router();
 const API_PREFIX = '/api';
 
-router.use(`${API_PREFIX}/books`, booksRouter);
-
+router.use(`${API_PREFIX}/auth`, authRouter);
 
 export default router;

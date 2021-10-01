@@ -1,9 +1,5 @@
-import Joi from 'joi';
-
-export interface LoginDto {
-    email: string;
-    password: string;
-}
+import Joi, { ValidationError } from 'joi';
+import { IUser } from '../user.model';
 
 export const loginValidationSchema = {
     email: Joi.string().required(),
@@ -13,3 +9,17 @@ export const loginValidationSchema = {
 export const loginValidationObject = Joi.object(
     loginValidationSchema
 ).required();
+
+export default {
+    validate: (
+        data: unknown
+    ): {
+        error?: ValidationError;
+        value: IUser;
+    } => {
+        return loginValidationObject.validate(data, {
+            abortEarly: false,
+            stripUnknown: true,
+        });
+    },
+};

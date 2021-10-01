@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 /**
@@ -28,10 +29,17 @@ switch (process.env.NODE_ENV) {
         _logFile = 'log-dev.log';
 }
 
+export const SESSION_SECRET = process.env.SESSION_SECRET || 'supersecretdonotshare';
+export const SESSION_MAX_AGE = process.env.SESSION_MAX_AGE
+    ? parseInt(process.env.SESSION_MAX_AGE)
+    : 1000 * 60 * 60 * 24 * 7;
+
 
 export default {
     PORT: process.env.PORT || 3000,
     DB_URI: _databaseURL,
     DB_NAME: _databaseName,
     LOG_FILE: _logFile,
+    SESSION_SECRET,
+    SESSION_MAX_AGE
 };

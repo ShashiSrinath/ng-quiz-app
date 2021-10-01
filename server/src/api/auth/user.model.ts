@@ -1,28 +1,22 @@
 import { Document, Model, model, Schema } from 'mongoose';
 
-export interface IBook {
-    name: string;
-    ownerName: string;
-    licence: {
-        number: string;
-        startDate: Date;
-        endDate: Date;
-    };
-    address: string;
+export interface IUser {
+    email: string;
+    password: string;
 }
 
-export type IBookModel = IBook & Document;
+export type IUserModel = IUser & Document;
 
-export const BookModel: Model<IBookModel> = model(
-    'book',
+export const UserModel: Model<IUserModel> = model(
+    'user',
     new Schema({
-        name: String,
-        ownerName: String,
-        licence: {
-            number: String,
-            startDate: String,
-            endDate: String,
+        email: {
+            type: String,
+            required: true,
         },
-        address: String,
+        password: {
+            type: String,
+            required: true
+        },
     })
 );
