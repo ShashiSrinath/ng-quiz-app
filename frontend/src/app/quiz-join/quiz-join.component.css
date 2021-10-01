@@ -1,0 +1,52 @@
+.main-card{
+    background-image: linear-gradient(to right, rgb(234, 208, 247),
+    #e7bce9);
+    height: 400px;
+    margin-top: 7%;
+    width: 60%;
+    margin-left: 20%;
+    border-radius: 10px;
+    
+}
+.img{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 5%;
+    
+}
+.cart{
+    
+    height: 400px;
+    position: relative;
+    width: 50%;
+    background-image: linear-gradient(to right, rgb(130, 3, 189),
+    #db0de2);
+    border-radius: 0px 10px 10px 0 ;
+    padding: 30px;
+    margin-left: 50%;
+}
+
+.head{
+    margin-top: 25px;
+    color: white;
+    font-size: 50px;
+}
+.cart input{
+    width: 80%;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 10%;
+    height: 40px;
+    margin-top: 20px;
+    background-color: white;
+}
+.btn{
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 10%;
+    height: 40px;
+    font-weight: bold;
+    
+}
