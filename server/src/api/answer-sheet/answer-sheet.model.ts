@@ -6,12 +6,14 @@ export type IAnswerSheet = {
     userCode: string;
     status: string;
     answers: {
-        question: {
-            _id: string;
-            questionNumber: string;
+        [key: string]: {
+            question: {
+                _id: string;
+                questionNumber: string;
+            };
+            answer: string;
         };
-        answer: string;
-    }[];
+    };
 };
 
 export type IAnswerModel = IAnswerSheet & Document;
@@ -32,8 +34,9 @@ export const AnswerSheetModel = model(
             type: String,
             required: true,
         },
-        answers: [
-            {
+        answers: {
+            type: Map,
+            of: {
                 question: {
                     type: Schema.Types.ObjectId,
                     ref: 'Question',
@@ -43,6 +46,6 @@ export const AnswerSheetModel = model(
                     required: true,
                 },
             },
-        ],
+        },
     })
 );
