@@ -8,7 +8,7 @@ export interface IUser {
 export type IUserModel = IUser & Document;
 
 export const UserModel: Model<IUserModel> = model(
-    'user',
+    'User',
     new Schema({
         email: {
             type: String,
@@ -16,7 +16,7 @@ export const UserModel: Model<IUserModel> = model(
         },
         password: {
             type: String,
-            required: true
+            required: true,
         },
     })
 );
