@@ -9,5 +9,5 @@ import { AppService } from './app.service';
 export class AppComponent {
   title = 'Sample Quiz';
 
-  constructor(public appService: AppService) {}
+  constructor() {}
 }
