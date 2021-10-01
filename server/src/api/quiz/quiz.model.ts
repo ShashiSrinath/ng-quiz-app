@@ -21,6 +21,10 @@ export const QuizModel = model(
             type: Schema.Types.ObjectId,
             ref: 'User',
         },
+        title: {
+            type: String,
+            required: true,
+        },
         questions: [
             {
                 type: Schema.Types.ObjectId,
