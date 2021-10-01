@@ -36,5 +36,17 @@ router.get('/as-student/:quizId', async (req, res, next) => {
 });
 
 // view quiz status - ( for owner )
+router.get('/as-owner/:quizId', async (req, res, next) => {
+    try {
+        const quizId = req.params.quizId;
+        const userId = req.session.user.id;
+        const quiz =  await quizService.getQuizAsOwner(userId, quizId);
+        
+        res.status(200).json(quiz);
+    } catch(e) {
+        next(e);
+    }
+});
+
 
 export default router;

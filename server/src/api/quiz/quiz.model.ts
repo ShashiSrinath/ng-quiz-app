@@ -15,7 +15,7 @@ export type IQuiz = {
 
 export type IQuizModel = IQuiz & Document;
 
-export const QuizModel = model(
+export const QuizModel = model<IQuizModel>(
     'Quiz',
     new Schema({
         title: {

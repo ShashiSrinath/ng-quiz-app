@@ -1,6 +1,7 @@
 import { QuizModel } from './quiz.model';
 import { QuestionModel } from '../question/question.model';
 import { CreateQuizJsonDto } from './dto/create-quiz-json.dto';
+import {HttpError} from '../../lib/http-error';
 
 async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     const questions = {};
@@ -32,7 +33,14 @@ async function getQuizAsStudent(quizId: string) {
         .populate('questions', '-correctAnswer');
 }
 
-async function getQuizAsOwner() {}
+async function getQuizAsOwner(userId: string, quizId: string) {
+    const quiz = await QuizModel.findById(quizId).populate('questions');
+    if(quiz.author._id.toString() !== userId) {
+        throw new HttpError(403, 'You don\'t have the permission to access this content')
+    }
+    return quiz;
+
+}
 
 export default {
     createAQuizFromJSON,
