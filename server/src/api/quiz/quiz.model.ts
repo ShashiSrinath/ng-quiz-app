@@ -3,32 +3,36 @@ import { IAnswerSheet } from '../answer-sheet/answer-sheet.model';
 import { Document, model, Schema } from 'mongoose';
 
 export type IQuiz = {
+    title: string;
     author: {
         _id: string;
     };
-    questions: IQuestion[];
+    questions: {
+        [questionNumber: string]: IQuestion;
+    };
     answerSheets: IAnswerSheet[];
 };
 
 export type IQuizModel = IQuiz & Document;
 
-export const QuizModel = model(
+export const QuizModel = model<IQuizModel>(
     'Quiz',
     new Schema({
-        author: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
         title: {
             type: String,
             required: true,
         },
-        questions: [
-            {
+        author: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+        questions: {
+            type: Map,
+            of: {
                 type: Schema.Types.ObjectId,
                 ref: 'Question',
             },
-        ],
+        },
         answerSheets: [
             {
                 type: Schema.Types.ObjectId,
