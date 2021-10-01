@@ -38,8 +38,8 @@
     border: 0;
     border-radius: 5px;
     margin-left: 10%;
-    height: 50px;
-    margin-top: 040px;
+    height: 40px;
+    margin-top: 20px;
     background-color: white;
 }
 .btn{
@@ -47,5 +47,6 @@
     width: 80%;
     margin-left: 10%;
     height: 40px;
+    font-weight: bold;
     
 }
