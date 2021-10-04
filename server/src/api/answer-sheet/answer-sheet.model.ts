@@ -5,12 +5,13 @@ export type IAnswerSheet = {
     quizId: string;
     userCode: string;
     status: string;
-    answers: {
-        [questionNumber: string]: {
+    answers: Map<
+        string,
+        {
             question: string;
             answer: string;
-        };
-    };
+        }
+    >;
 };
 
 export type IAnswerModel = IAnswerSheet & Document;
