@@ -13,7 +13,6 @@ import {FormsModule} from "@angular/forms";
 import { QuizJoinComponent } from './quiz-join/quiz-join.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { HomeComponent } from './home/home.component';
-import { MainFooterComponent } from './main-footer/main-footer.component';
 import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
 
 @NgModule({
