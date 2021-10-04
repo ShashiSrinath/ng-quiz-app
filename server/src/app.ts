@@ -10,7 +10,7 @@ import router from './router';
 const app = express();
 
 /* apply middleware */
-app.use(cors({origin: ["http://localhost:4200"], credentials: true}));
+app.use(cors({ origin: ['http://localhost:4200'], credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(httpLogger);
@@ -36,6 +36,9 @@ declare module 'express-session' {
         user?: {
             id: string;
             type: string;
+        };
+        answerSheet?: {
+            id: string;
         };
     }
 }
