@@ -1,0 +1,43 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
+.img{
+    width: 250px;
+    height: 250px;
+}
+
+.form-control {
+    border-radius: 0%;
+}
+
+.container {
+    background-image: linear-gradient(to right, rgb(130, 3, 189),
+    #007bff);
+}
+
+.custom-input {
+    background-color: transparent;
+    color: #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #fff;
+}
+
+.form-control {
+    box-shadow: none;
+}
+
+.input-group-text {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #fff;
+    border-radius: 0%;
+}
+
+.container {
+    padding: 5em;
+}

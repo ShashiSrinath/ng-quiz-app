@@ -11,7 +11,7 @@ export type IQuestion = {
 
 export type IQuestionModel = IQuestion & Document;
 
-export const QuestionModel = model(
+export const QuestionModel = model<IQuestion>(
     'Question',
     new Schema({
         questionNumber: {

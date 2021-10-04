@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './api.service';
 import { AppService } from './app.service';
 
 @Component({
@@ -9,5 +10,7 @@ import { AppService } from './app.service';
 export class AppComponent {
   title = 'Sample Quiz';
 
-  constructor(public appService: AppService) {}
+  constructor(public appService: AppService, private apiService: ApiService) {
+    apiService.checkAuth().subscribe();
+  }
 }

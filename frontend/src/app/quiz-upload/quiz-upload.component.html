@@ -3,12 +3,12 @@
         <div class="col-6">
             <h2 class="text-center mb-4 text-light">Upload Questions</h2>
             <div class="d-flex justify-content-center">
-                <form class="w-75" action="#" method="GET">
+                <form class="w-75" [formGroup]="fileUpload">
                     <div class="input-group mb-3">
                         <span class="input-group-text text-light" id="quizName">
                             <i class="bi bi-file-earmark-plus-fill"></i>
                         </span>
-                        <input type="text" class="form-control bg-transparent" placeholder="Quiz Name" >
+                        <input type="text" class="form-control bg-transparent" placeholder="Quiz Name" formControlName="name">
                     </div>
             
                     <!-- create passcode for quiz -->
@@ -16,13 +16,13 @@
                         <span class="input-group-text text-light" id="quizPasscode">
                             <i class="bi bi-unlock-fill"></i>
                         </span>
-                        <input type="password" class="form-control bg-transparent" placeholder="Quiz Passcode">
+                        <input type="password" class="form-control bg-transparent" placeholder="Quiz Passcode" formControlName="passcode">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text text-light" id="reQuizPasscode">
                             <i class="bi bi-lock-fill"></i>
                         </span>
-                        <input type="password" class="form-control bg-transparent" placeholder="Re-enter Passcode">
+                        <input type="password" class="form-control bg-transparent" placeholder="Re-enter Passcode" formControlName="repasscode">
                     </div>
 
                     <!-- <div class="form-group">
@@ -39,13 +39,13 @@
                     <!-- input question file -->
                     <div class="form-group d-flex justify-content-center">
                         <span class="file-input btn btn-light rounded-0 w-100 btn-file file-btn shadow mt-3">
-                        Add file&hellip; <input type="file">
+                        Add file&hellip; <input type="file" (change)="onFileUpload($event)">
                         </span>
                     </div>
             
                     <!-- submit button -->
                     <div class="form-group d-flex justify-content-center m-0">
-                        <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow">Create Quiz</button>
+                        <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow" (click)="onCreateQuiz()">Create Quiz</button>
                     </div>
                 </form>
             </div>
