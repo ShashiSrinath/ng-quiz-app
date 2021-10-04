@@ -1,6 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import logger from './utils/logger';
 import session from 'express-session';
+import cors from 'cors';
 import { SESSION_MAX_AGE, SESSION_SECRET } from './config';
 import { httpLogger } from './middlewares/http-logger';
 import { HttpError } from './lib/http-error';
@@ -9,6 +10,7 @@ import router from './router';
 const app = express();
 
 /* apply middleware */
+app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(httpLogger);
