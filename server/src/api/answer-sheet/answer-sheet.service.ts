@@ -6,6 +6,11 @@ import { QuizModel } from '../quiz/quiz.model';
 import { HttpError } from '../../lib/http-error';
 
 async function createAnswerSheet(data: CreateAnswerSheetDTO) {
+    // validate passcode
+    const quiz = await QuizModel.findById(data.quizId);
+    if (quiz.passcode !== data.passcode) {
+        throw new HttpError(401, 'Invalid Passcode');
+    }
     return AnswerSheetModel.create({ ...data, status: 'Ongoing' });
 }
 

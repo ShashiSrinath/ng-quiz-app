@@ -4,6 +4,7 @@ import { Document, model, Schema } from 'mongoose';
 
 export type IQuiz = {
     title: string;
+    passcode: string;
     author: {
         _id: string;
     };
