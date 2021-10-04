@@ -4,7 +4,6 @@ import createAnserSheetDTO from './dto/create-answer-sheet.dto';
 import submitSingleAnswerDTO from './dto/submit-single-answer.dto';
 import answerSheetServer from './answer-sheet.service';
 import { HttpError } from '../../lib/http-error';
-import logger from '../../utils/logger';
 
 const router = Router();
 
@@ -70,9 +69,7 @@ router.post('/finish-answer-sheet', async (req, res, nxt) => {
         const result = await answerSheetServer.finishAnswerSheet(
             req.session.answerSheet.id
         );
-        req.session.destroy((err) => {
-            logger.error(err);
-        });
+        delete req.session.answerSheet;
         res.status(200).json(result);
     } catch (err) {
         nxt(err);
