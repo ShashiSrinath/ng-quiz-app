@@ -5,18 +5,19 @@ export type IAnswerSheet = {
     quizId: string;
     userCode: string;
     status: string;
-    answers: Map<
-        string,
-        {
-            question: string;
+    answers: {
+        [questionNumber: string]: {
+            question: {
+                _id: string;
+            };
             answer: string;
-        }
-    >;
+        };
+    };
 };
 
 export type IAnswerModel = IAnswerSheet & Document;
 
-export const AnswerSheetModel = model<IAnswerModel>(
+export const AnswerSheetModel = model(
     'AnswerSheet',
     new Schema({
         quizId: {
