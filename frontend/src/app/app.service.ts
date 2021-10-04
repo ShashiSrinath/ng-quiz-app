@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import { ApiService } from './api.service';
 import {Question, Result} from "./types";
 
 @Injectable({
@@ -7,6 +8,7 @@ import {Question, Result} from "./types";
 export class AppService {
   questions: Question[];
   currentPageIndex: number;
+  user?: string;
 
   constructor() {
     this.questions = [
@@ -45,6 +47,9 @@ export class AppService {
       },
     ];
     this.currentPageIndex = 0;
+
+
+
   }
 
   // public gotoNextPage = () => {
