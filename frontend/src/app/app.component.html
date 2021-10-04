@@ -1,2 +1,47 @@
-<router-outlet></router-outlet>
-<app-main-footer></app-main-footer>
+<app-quiz-join></app-quiz-join>
+
+<!-- header section -->
+<div class="container-fluid">
+  <app-header></app-header>
+</div>
+
+<!-- quiz -->
+<div class="container-fluid">
+  <div class="row" *ngIf="appService.currentPageIndex < appService.questions.length">
+    <div class="col-10">
+      <div class="container p-3">
+        <div *ngIf="appService.questions[appService.currentPageIndex].type === 'text'">
+          <app-text-quiz [question]="appService.questions[appService.currentPageIndex]"></app-text-quiz>
+        </div>
+        <div *ngIf="appService.questions[appService.currentPageIndex].type === 'mcq'">
+          <app-mcq [question]="appService.questions[appService.currentPageIndex]"></app-mcq>
+        </div>
+      </div>
+      <div class="container">
+        <div class="container-fluid">
+          <app-footer></app-footer>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div>
+        <h1>Questions</h1>
+      </div>
+      <div>
+        <div class="d-flex question-wrap">
+          <app-quiz-overall-view *ngFor="let app of appService.questions; let i = index" [quizNumber]="i"></app-quiz-overall-view>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- result page -->
+<div class="container" *ngIf="appService.currentPageIndex === appService.questions.length">
+  <app-quiz-result></app-quiz-result>
+</div>
+
+<!-- quiz uploader page -->
+<div class="container mt-3">
+  <app-quiz-upload></app-quiz-upload>
+</div>
