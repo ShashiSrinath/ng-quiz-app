@@ -3,6 +3,7 @@ import { IQuestion } from '../../question/question.model';
 
 export type CreateQuizJsonDto = {
     title: string;
+    passcode: string;
     questions: {
         [questionNumber: string]: IQuestion;
     };
@@ -10,6 +11,7 @@ export type CreateQuizJsonDto = {
 
 export const createQuizJsonValidationSchema = {
     title: Joi.string().required(),
+    passcode: Joi.string().required(),
     questions: Joi.object().pattern(
         /^/,
         Joi.object({

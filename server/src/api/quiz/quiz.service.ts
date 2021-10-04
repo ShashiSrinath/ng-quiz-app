@@ -2,9 +2,9 @@ import { QuizModel } from './quiz.model';
 import { QuestionModel } from '../question/question.model';
 import { CreateQuizJsonDto } from './dto/create-quiz-json.dto';
 import { HttpError } from '../../lib/http-error';
-import { Readable, Writable } from 'stream';
+import { Readable } from 'stream';
 import readXlsxFile from 'read-excel-file/node';
-import { read, createReadStream } from 'fs';
+import { CreateQuizXlsxDto } from './dto/create-quiz-xlsx.dto';
 
 async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     const questions = {};
@@ -15,6 +15,7 @@ async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
 
     const quizObject = {
         title: data.title,
+        passcode: data.passcode,
         questions,
         author: userId,
         answerSheets: [],
@@ -23,7 +24,12 @@ async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     return (await QuizModel.create(quizObject)).populate('questions');
 }
 
-async function createAQuizFromExcelSheet(userid: string, file: unknown, title: string) {
+async function createAQuizFromExcelSheet(
+    userid: string,
+    file: unknown,
+    inputs: CreateQuizXlsxDto
+) {
+    /** Read Excel file and convert it to json array **/
     const readableStream = new Readable({
         read() {
             this.push(file);
@@ -40,19 +46,29 @@ async function createAQuizFromExcelSheet(userid: string, file: unknown, title: s
         }
         arr.push(obj);
     });
+
+    /** convert json array into required format */
     const questions: any = {};
-    for(let i = 0;i<arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         const qObject: any = {};
         const currentQuiz = arr[i];
         qObject.question = currentQuiz.Question;
         qObject.type = 'mcq';
-        qObject.questionNumber = i+1;
-        qObject.multipleChoices = [currentQuiz.A, currentQuiz.B, currentQuiz.C, currentQuiz.D];
+        qObject.questionNumber = i + 1;
+        qObject.multipleChoices = [
+            currentQuiz.A,
+            currentQuiz.B,
+            currentQuiz.C,
+            currentQuiz.D,
+        ];
         qObject.correctAnswer = currentQuiz.Answer;
-        questions[qObject.questionNumber] =  qObject;
-
+        questions[qObject.questionNumber] = qObject;
     }
-    return createAQuizFromJSON(userid,{title: title, questions: questions});
+    return createAQuizFromJSON(userid, {
+        title: inputs.title,
+        passcode: inputs.passcode,
+        questions: questions,
+    });
 }
 
 // without answers

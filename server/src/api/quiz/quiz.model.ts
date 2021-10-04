@@ -20,6 +20,10 @@ export const QuizModel = model<IQuizModel>(
             type: String,
             required: true,
         },
+        passcode: {
+            type: String,
+            required: true,
+        },
         author: {
             type: Schema.Types.ObjectId,
             ref: 'User',
