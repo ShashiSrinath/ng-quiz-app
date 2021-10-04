@@ -1,4 +1,10 @@
 
 .idea/
 server/.env
+<<<<<<< HEAD
 node_modules
+=======
+=======
+node_modules
+>>>>>>> Stashed changes
+>>>>>>> ffe805dabbf8aa9d427d816cac1c44c0c885f51e
