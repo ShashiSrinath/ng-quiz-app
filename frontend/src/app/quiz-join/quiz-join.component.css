@@ -2,11 +2,11 @@
     background-image: linear-gradient(to right, rgb(234, 208, 247),
     #e7bce9);
     height: 400px;
-    margin-top: 7%;
+    margin-top: 50px;
     width: 60%;
     margin-left: 20%;
     border-radius: 10px;
-    
+    margin-bottom: 50px;
 }
 .img{
     width: 250px;

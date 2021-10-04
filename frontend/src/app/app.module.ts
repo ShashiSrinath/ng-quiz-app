@@ -11,6 +11,8 @@ import { McqComponent } from './mcq/mcq.component';
 import { TextQuizComponent } from './text-quiz/text-quiz.component';
 import {FormsModule} from "@angular/forms";
 import { QuizJoinComponent } from './quiz-join/quiz-join.component';
+import { MainFooterComponent } from './main-footer/main-footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { QuizJoinComponent } from './quiz-join/quiz-join.component';
     MainFooterComponent,
     TextQuizComponent,
     QuizJoinComponent,
+    HomeComponent,
   ],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
