@@ -7,9 +7,7 @@ export type IAnswerSheet = {
     status: string;
     answers: {
         [questionNumber: string]: {
-            question: {
-                _id: string;
-            };
+            question: string;
             answer: string;
         };
     };
@@ -17,7 +15,7 @@ export type IAnswerSheet = {
 
 export type IAnswerModel = IAnswerSheet & Document;
 
-export const AnswerSheetModel = model(
+export const AnswerSheetModel = model<IAnswerModel>(
     'AnswerSheet',
     new Schema({
         quizId: {
