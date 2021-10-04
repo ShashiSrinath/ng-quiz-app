@@ -3,6 +3,7 @@ import LoginDto from './dto/login.dto';
 import { HttpValidationError } from '../../lib/http-validation-error';
 import authService from './auth.service';
 import { AuthGuard } from './auth.guard';
+import logger from '../../utils/logger';
 
 const router = Router();
 
@@ -12,6 +13,14 @@ router.get('/check', AuthGuard, (req, res) => {
         message: 'Authorized',
         id: req.session.user.id,
     });
+});
+
+router.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        logger.error(err);
+    });
+
+    res.status(201).send();
 });
 
 router.post('/login', async (req, res, next) => {
