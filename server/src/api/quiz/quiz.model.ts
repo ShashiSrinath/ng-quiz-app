@@ -1,4 +1,4 @@
-import { IQuestion } from '../question/question.model';
+import { IQuestionModel } from '../question/question.model';
 import { IAnswerSheet } from '../answer-sheet/answer-sheet.model';
 import { Document, model, Schema } from 'mongoose';
 
@@ -7,9 +7,7 @@ export type IQuiz = {
     author: {
         _id: string;
     };
-    questions: {
-        [questionNumber: string]: IQuestion;
-    };
+    questions: Map<string, IQuestionModel>;
     answerSheets: IAnswerSheet[];
 };
 
