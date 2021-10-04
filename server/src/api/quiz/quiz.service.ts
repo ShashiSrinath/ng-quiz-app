@@ -1,7 +1,10 @@
 import { QuizModel } from './quiz.model';
 import { QuestionModel } from '../question/question.model';
 import { CreateQuizJsonDto } from './dto/create-quiz-json.dto';
-import {HttpError} from '../../lib/http-error';
+import { HttpError } from '../../lib/http-error';
+import { Readable, Writable } from 'stream';
+import readXlsxFile from 'read-excel-file/node';
+import { read, createReadStream } from 'fs';
 
 async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     const questions = {};
@@ -20,9 +23,27 @@ async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     return (await QuizModel.create(quizObject)).populate('questions');
 }
 
-async function createAQuizFromExcelSheet() {
+async function createAQuizFromExcelSheet(file: unknown) {
+    const readableStream = new Readable({
+        read() {
+            this.push(file);
+            this.push(null);
+        },
+    });
+    const rows = await readXlsxFile(readableStream);
+    const arr = [];
+    const [headers, ...data] = rows;
+    data.forEach((d) => {
+        const obj = {};
+        for (let i = 0; i < headers.length; i++) {
+            obj[headers[i]] = d[i];
+        }
+        arr.push(obj);
+    });
+
     // todo: parse excel data
     // return createAQuizFromJSON();
+    return arr;
 }
 
 // without answers
@@ -35,11 +56,13 @@ async function getQuizAsStudent(quizId: string) {
 
 async function getQuizAsOwner(userId: string, quizId: string) {
     const quiz = await QuizModel.findById(quizId).populate('questions');
-    if(quiz.author._id.toString() !== userId) {
-        throw new HttpError(403, 'You don\'t have the permission to access this content')
+    if (quiz.author._id.toString() !== userId) {
+        throw new HttpError(
+            403,
+            "You don't have the permission to access this content"
+        );
     }
     return quiz;
-
 }
 
 export default {
