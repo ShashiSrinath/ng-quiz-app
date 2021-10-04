@@ -3,6 +3,7 @@ import { Router } from 'express';
 import createQuizJsonDto from './dto/create-quiz-json.dto';
 import { HttpValidationError } from '../../lib/http-validation-error';
 import { fileUpload } from '../../lib/local-file-upload';
+import createQuizXlsxDto from './dto/create-quiz-xlsx.dto';
 
 const router = Router();
 
@@ -28,9 +29,14 @@ router.post(
     '/create-from-xlsx',
     fileUpload.single('file'),
     async (req, res, next) => {
+        const { error, value } = createQuizXlsxDto.validate(req.body);
+
+    if (error) {
+        return next(new HttpValidationError(error));
+    }
         // @ts-ignore
         const buffer = req.file?.buffer;
-        const result = await quizService.createAQuizFromExcelSheet(buffer);
+        const result = await quizService.createAQuizFromExcelSheet(req.session.user.id,buffer, value.title);
         return res.json(result);
     }
 );

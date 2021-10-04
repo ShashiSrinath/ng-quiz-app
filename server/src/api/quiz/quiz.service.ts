@@ -23,7 +23,7 @@ async function createAQuizFromJSON(userId: string, data: CreateQuizJsonDto) {
     return (await QuizModel.create(quizObject)).populate('questions');
 }
 
-async function createAQuizFromExcelSheet(file: unknown) {
+async function createAQuizFromExcelSheet(userid: string, file: unknown, title: string) {
     const readableStream = new Readable({
         read() {
             this.push(file);
@@ -40,10 +40,19 @@ async function createAQuizFromExcelSheet(file: unknown) {
         }
         arr.push(obj);
     });
+    const questions: any = {};
+    for(let i = 0;i<arr.length; i++){
+        const qObject: any = {};
+        const currentQuiz = arr[i];
+        qObject.question = currentQuiz.Question;
+        qObject.type = 'mcq';
+        qObject.questionNumber = i+1;
+        qObject.multipleChoices = [currentQuiz.A, currentQuiz.B, currentQuiz.C, currentQuiz.D];
+        qObject.correctAnswer = currentQuiz.Answer;
+        questions[qObject.questionNumber] =  qObject;
 
-    // todo: parse excel data
-    // return createAQuizFromJSON();
-    return arr;
+    }
+    return createAQuizFromJSON(userid,{title: title, questions: questions});
 }
 
 // without answers
