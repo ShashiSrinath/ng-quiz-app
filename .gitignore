@@ -1,4 +1,4 @@
 .idea/
 server/.env
-server/.run
+server/.run/*
 node_modules
