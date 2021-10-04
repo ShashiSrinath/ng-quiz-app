@@ -14,6 +14,8 @@ import { QuizJoinComponent } from './quiz-join/quiz-join.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { HomeComponent } from './home/home.component';
 import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
+import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,9 @@ import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
     QuizJoinComponent,
     HomeComponent,
     QuizUploadComponent,
+    AuthComponent,
   ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
