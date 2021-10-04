@@ -1,1 +1,9 @@
+.page-body {
+    height: 80vh;
+    background-image: linear-gradient(to right, rgb(210, 235, 255),
+    #f0f0f0);
+}
 
+.page-footer {
+    height: 20vh;
+}
