@@ -9,7 +9,7 @@ import { QuizResultComponent } from './quiz-result/quiz-result.component';
 import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.component';
 import { McqComponent } from './mcq/mcq.component';
 import { TextQuizComponent } from './text-quiz/text-quiz.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { QuizJoinComponent } from './quiz-join/quiz-join.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     QuizUploadComponent,
     AuthComponent,
   ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -33,7 +33,7 @@ export class ApiService {
   // create quiz
   public createQuiz(file: FormData) {
     let url = live_server + "quiz/create-from-xlsx";
-    return this.http.post(url, {file: file, title: file}, {withCredentials: true});
+    return this.http.post(url, file, {withCredentials: true});
   }
 
   public checkAuth() {
