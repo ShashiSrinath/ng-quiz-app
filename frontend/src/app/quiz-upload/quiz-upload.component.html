@@ -1,54 +1,57 @@
 <div class="container p-5 border shadow bg-white">
-    <h2 class="text-center mb-4">Upload Questions</h2>
-    <div class="d-flex justify-content-center">
-        <form class="w-50" action="#" method="GET">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="quizName">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
-                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                        <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
-                      </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="Quiz Name" >
-            </div>
-    
-            <!-- create passcode for quiz -->
-            <div class="form-group">
-                <div id="quizPasscode" class="row">
-                    <div class="col">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="quizPasscode">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
-                                    <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
-                                  </svg>
-                            </span>
-                            <input type="password" class="form-control" placeholder="Quiz Passcode">
-                        </div>
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-center mb-4 text-light">Upload Questions</h2>
+            <div class="d-flex justify-content-center">
+                <form class="w-75" action="#" method="GET">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-light" id="quizName">
+                            <i class="bi bi-file-earmark-plus-fill"></i>
+                        </span>
+                        <input type="text" class="form-control bg-transparent" placeholder="Quiz Name" >
                     </div>
-                    <div class="col">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="reQuizPasscode">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
-                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
-                                  </svg>
-                            </span>
-                            <input type="password" class="form-control" placeholder="Re-enter Passcode">
-                        </div>
+            
+                    <!-- create passcode for quiz -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-light" id="quizPasscode">
+                            <i class="bi bi-unlock-fill"></i>
+                        </span>
+                        <input type="password" class="form-control bg-transparent" placeholder="Quiz Passcode">
                     </div>
-                </div>
-            </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-light" id="reQuizPasscode">
+                            <i class="bi bi-lock-fill"></i>
+                        </span>
+                        <input type="password" class="form-control bg-transparent" placeholder="Re-enter Passcode">
+                    </div>
 
-            <!-- input question file -->
-            <div class="form-group d-flex justify-content-center">
-                <span class="file-input btn btn-outline-success rounded-0 w-75 btn-file file-btn shadow">
-                Upload file&hellip; <input type="file">
-                </span>
+                    <!-- <div class="form-group">
+                        <div id="quizPasscode" class="row">
+                            <div class="col">
+                                
+                            </div>
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- input question file -->
+                    <div class="form-group d-flex justify-content-center">
+                        <span class="file-input btn btn-light rounded-0 w-100 btn-file file-btn shadow mt-3">
+                        Add file&hellip; <input type="file">
+                        </span>
+                    </div>
+            
+                    <!-- submit button -->
+                    <div class="form-group d-flex justify-content-center m-0">
+                        <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow">Create Quiz</button>
+                    </div>
+                </form>
             </div>
-    
-            <!-- submit button -->
-            <div class="form-group d-flex justify-content-center m-0">
-                <button type="submit" class="btn btn-success rounded-0 w-50 p-2 shadow">Upload</button>
-            </div>
-        </form>
+        </div>
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <img  src="../../assets/Image/owl.png" class=" img rounded float-right w-50" alt="photo">
+        </div>
     </div>
 </div>

@@ -1,3 +1,8 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
 .form-group {
     margin-bottom: 2em;
 }
@@ -7,7 +12,7 @@
     border-left: 0px;
     border-right: 0px;
     border-width: 2px;
-    border-color: #28a745;
+    border-color: #fff;
     border-radius: 0;
 }
 
@@ -16,9 +21,8 @@
 }
 
 .form-control:focus {
-    color: #495057;
+    color: #fff;
     background-color: #fff;
-    border-color: #007bff;
     border-width: 2px;
     outline: 0;
     box-shadow: none;
@@ -45,16 +49,22 @@
 
 .btn-file:hover {
     background-color: transparent;
-    border-color: #007bff;
+    border-color: #fff;
     border-width: 1px;
     color: #000;
 }
 
 .input-group-text {
     background-color: transparent;
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #fff;
+    border-radius: 0%;
 }
 
 .container {
     padding: 0;
+    background-image: linear-gradient(to left, rgb(130, 3, 189),
+    #007bff);
 }
