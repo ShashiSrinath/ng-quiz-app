@@ -2,8 +2,17 @@ import { Router } from 'express';
 import LoginDto from './dto/login.dto';
 import { HttpValidationError } from '../../lib/http-validation-error';
 import authService from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 const router = Router();
+
+router.get('/check', AuthGuard, (req, res) => {
+    return res.status(200).send({
+        status: 200,
+        message: 'Authorized',
+        id: req.session.user.id,
+    });
+});
 
 router.post('/login', async (req, res, next) => {
     const { error, value } = LoginDto.validate(req.body);
