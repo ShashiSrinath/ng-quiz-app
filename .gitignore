@@ -6,3 +6,5 @@ server/.env
 =======
 node_modules
 >>>>>>> Stashed changes
+
+server/.run/
