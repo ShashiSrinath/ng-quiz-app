@@ -1,14 +1,12 @@
 import Joi, { ValidationError } from 'joi';
 
 export type SubmitSingleAnswerDTO = {
-    _id: string;
     questionId: string;
     questionNumber: number;
     answer: string;
 };
 
 export const submitSingleAnswerSchema = {
-    _id: Joi.string().required(),
     questionId: Joi.string().required(),
     questionNumber: Joi.number().required(),
     answer: Joi.string().required(),

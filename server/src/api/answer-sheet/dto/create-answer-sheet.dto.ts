@@ -2,11 +2,13 @@ import Joi, { ValidationError } from 'joi';
 
 export type CreateAnswerSheetDTO = {
     quizId: string;
+    passcode: string;
     userCode: string;
 };
 
 export const createAnswerSheetSchema = {
     quizId: Joi.string().required(),
+    passcode: Joi.string().required(),
     userCode: Joi.string().required(),
 };
 

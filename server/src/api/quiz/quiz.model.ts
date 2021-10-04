@@ -4,6 +4,7 @@ import { Document, model, Schema } from 'mongoose';
 
 export type IQuiz = {
     title: string;
+    passcode: string;
     author: {
         _id: string;
     };
@@ -17,6 +18,10 @@ export const QuizModel = model<IQuizModel>(
     'Quiz',
     new Schema({
         title: {
+            type: String,
+            required: true,
+        },
+        passcode: {
             type: String,
             required: true,
         },

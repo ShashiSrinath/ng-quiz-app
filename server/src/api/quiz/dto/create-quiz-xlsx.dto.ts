@@ -1,14 +1,13 @@
 import Joi, { ValidationError } from 'joi';
-import { IQuestion } from '../../question/question.model';
 
 export type CreateQuizXlsxDto = {
     title: string;
-
+    passcode: string;
 };
 
 export const createQuizXlsxValidationSchema = {
-    title: Joi.string().required()
-
+    title: Joi.string().required(),
+    passcode: Joi.string().required(),
 };
 
 export const createQuizXlsxValidationObject = Joi.object(

@@ -14,9 +14,9 @@ export type IAnswerSheet = {
     >;
 };
 
-export type IAnswerModel = IAnswerSheet & Document;
+export type IAnswerSheetModel = IAnswerSheet & Document;
 
-export const AnswerSheetModel = model<IAnswerModel>(
+export const AnswerSheetModel = model<IAnswerSheetModel>(
     'AnswerSheet',
     new Schema({
         quizId: {

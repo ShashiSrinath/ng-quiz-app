@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-quiz-upload',
@@ -7,9 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizUploadComponent implements OnInit {
 
-  constructor() { }
+  // name: string ="";
+  // passcode: string ="";
+  // repasscode: string="";
+  file?: File;
+
+  fileUpload = new FormGroup({
+    name: new FormControl("", Validators.required),
+    passcode: new FormControl("", Validators.required),
+    repasscode: new FormControl("", Validators.required)
+  });
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+  }
+
+  onFileUpload(event: any) {
+    if (event.target.files.length > 0) {
+      this.file = event.target.files[0];
+    }
+  }
+
+  onCreateQuiz() {
+    const fileData = new FormData();
+
+    if (this.fileUpload.valid && !!this.file) {
+      fileData.append("title", this.fileUpload.get("name")?.value);
+      fileData.append("passcode", this.fileUpload.get("passcode")?.value);
+      fileData.append("file", this.file);
+      this.apiService.createQuiz(fileData).subscribe(
+        data => {
+          console.log(data);
+        }, error => {
+          console.log(error);
+        }
+      );
+    }
+
+    
   }
 
 }

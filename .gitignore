@@ -1,3 +1,4 @@
 .idea/
 server/.env
+server/.run/*
 node_modules
