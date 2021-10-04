@@ -1,11 +1,23 @@
-<app-quiz-join></app-quiz-join>
+<div class="container-fluid p-0">
+  <div class="page-body d-flex justify-content-center align-items-center">
+    <div class="w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="page-footer">
+    <app-main-footer></app-main-footer>
+  </div>
+</div>
 
-<!-- header section -->
+<!-- <app-quiz-join></app-quiz-join> -->
+
+<!-- header section 
 <div class="container-fluid">
   <app-header></app-header>
 </div>
+-->
 
-<!-- quiz -->
+<!-- quiz
 <div class="container-fluid">
   <div class="row" *ngIf="appService.currentPageIndex < appService.questions.length">
     <div class="col-10">
@@ -35,13 +47,16 @@
     </div>
   </div>
 </div>
+-->
 
-<!-- result page -->
+<!-- result page 
 <div class="container" *ngIf="appService.currentPageIndex === appService.questions.length">
   <app-quiz-result></app-quiz-result>
 </div>
+-->
 
-<!-- quiz uploader page -->
+<!-- quiz uploader page 
 <div class="container mt-3">
   <app-quiz-upload></app-quiz-upload>
 </div>
+-->
