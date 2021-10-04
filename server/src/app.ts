@@ -45,6 +45,8 @@ app.use(router);
 app.use((err, req, res, _next) => {
     if (err instanceof HttpError) {
         res.status(err.status).send(err.toJSON());
+    } else if (err instanceof SyntaxError && 'body' in err) {
+        res.status(400).send(err);
     } else {
         logger.error(err);
         res.status(500).send(
