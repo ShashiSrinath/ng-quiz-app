@@ -10,7 +10,7 @@ import router from './router';
 const app = express();
 
 /* apply middleware */
-app.use(cors());
+app.use(cors({origin: ["http://localhost:4200"], credentials: true}));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(httpLogger);
