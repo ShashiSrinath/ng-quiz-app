@@ -90,8 +90,6 @@ async function getQuizAsOwner(userId: string, quizId: string) {
     return quiz;
 }
 
-}
-
 export default {
     createAQuizFromJSON,
     createAQuizFromExcelSheet,

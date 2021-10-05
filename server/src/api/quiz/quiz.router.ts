@@ -41,7 +41,7 @@ router.post(
         const result = await quizService.createAQuizFromExcelSheet(
             req.session.user.id,
             buffer,
-            value.title
+            value
         );
         return res.json(result);
     }
