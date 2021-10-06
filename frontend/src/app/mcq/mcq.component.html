@@ -1,9 +1,10 @@
-<div class="mcq_quastion" *ngIf="question?.type==='mcq'">
+<div class="mcq_quastion" *ngIf="question && question?.type==='mcq'">
   <div class="questions">
     <h2 class="mb-3">{{question?.question}}</h2>
-    <ul class="list-group" *ngFor="let quiz of question?.choices;let i = index">
+    <ul class="list-group" *ngFor="let quiz of question?.multipleChoices;let i = index">
       <li class="list-group-item">
-        <input [id]="i" type="radio" name="options" [value]="quiz" [(ngModel)]="answer" (ngModelChange)="onChange($event)">
+        <input [id]="i" type="radio" name="options" [value]="getValueFromIndex(i)" [(ngModel)]="question.answer"
+               (ngModelChange)="onChange($event)">
         <label class="ml-3" [htmlFor]="i">{{quiz}}</label>
       </li>
     </ul>

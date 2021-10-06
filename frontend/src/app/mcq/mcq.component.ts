@@ -1,25 +1,28 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Question} from '../types';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Question } from '../types';
 
 @Component({
   selector: 'app-mcq',
   templateUrl: './mcq.component.html',
-  styleUrls: ['./mcq.component.css']
+  styleUrls: ['./mcq.component.css'],
 })
 export class McqComponent implements OnInit {
-
   @Input() question?: Question;
+  @Output() onAnswerSelected = new EventEmitter<string>();
+
   answer: string = '';
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onChange = (_e: any) => {
     if (this.question) {
-      this.question.answer = this.answer;
+      this.onAnswerSelected.emit(this.question.answer);
     }
+  };
+
+  getValueFromIndex(index: number): string {
+    return String.fromCharCode(65 + index);
   }
 }
