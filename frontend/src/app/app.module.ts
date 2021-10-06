@@ -9,13 +9,14 @@ import { QuizResultComponent } from './quiz-result/quiz-result.component';
 import { QuizOverallViewComponent } from './quiz-overall-view/quiz-overall-view.component';
 import { McqComponent } from './mcq/mcq.component';
 import { TextQuizComponent } from './text-quiz/text-quiz.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuizJoinComponent } from './quiz-join/quiz-join.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { HomeComponent } from './home/home.component';
 import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AllQuizComponent } from './all-quiz/all-quiz.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     QuizUploadComponent,
     AuthComponent,
+    AllQuizComponent,
   ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

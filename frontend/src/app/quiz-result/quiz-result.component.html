@@ -11,19 +11,23 @@
             </tr>
             <tr>
                 <td class="text-right">Total Questions</td>
-                <td>: {{result.totalQuestions}}</td>
+                <td>: {{result?.totalQuestions}}</td>
             </tr>
+          <tr>
+            <td class="text-right">Total Answered</td>
+            <td>: {{result?.totalAnswered}}</td>
+          </tr>
             <tr>
                 <td class="text-right">Correct Answers</td>
-                <td>: {{result.correctAnswers}}</td>
+                <td>: {{result?.totalCorrectAnswers}}</td>
             </tr>
             <tr>
                 <td class="text-right">Score Percentage</td>
-                <td>: {{result.percentage}}</td>
+                <td>: {{result?.percentage}}</td>
             </tr>
         </table>
     </div>
     <div class="pl-0 pr-0 pt-3 pb-3 d-flex justify-content-center">
-        <button class="btn btn-success w-25">Finish</button>
+        <a class="btn btn-success w-25" routerLink="/">Finish</a>
     </div>
 </div>

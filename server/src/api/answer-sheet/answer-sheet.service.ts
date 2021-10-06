@@ -37,6 +37,9 @@ async function submitSingleAnswer(
     }
 
     const question = await QuestionModel.findById(data.questionId);
+    if (!answerSheet.answers) {
+        answerSheet.answers = new Map();
+    }
     answerSheet.answers.set(question.questionNumber.toString(), {
         question: data.questionId,
         answer: data.answer,
@@ -69,10 +72,10 @@ async function finishAnswerSheet(answerSheetId: string) {
             100
         ).toFixed(2)} %`,
     };
-    return AnswerSheetModel.findByIdAndUpdate(answerSheetId, {
+    await AnswerSheetModel.findByIdAndUpdate(answerSheetId, {
         status: 'Finished',
-        result,
     });
+    return result;
 }
 
 export default {

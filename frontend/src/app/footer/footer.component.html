@@ -1,10 +1,13 @@
 <div class="containter-fluid">
-    <div class="w-100 d-flex justify-content-between">
-        <div class="previous">
-            <button class="btn btn-primary btn-md" (click)="appService.gotoPreviousPage()">Previous</button>
-        </div>
-        <div class="next">
-            <button class="btn btn-primary btn-md" (click)="appService.gotoNextPage()">Next</button>
-        </div>
-     </div>
+  <div class="w-100 d-flex justify-content-between">
+    <div class="previous">
+      <button class="btn btn-primary btn-md" (click)="gotoPreviousPage && gotoPreviousPage()" [disabled]="isFirstQuestion">Previous</button>
+    </div>
+    <div class="next">
+      <button class="btn btn-primary btn-md" (click)="submitAnswers && submitAnswers()" *ngIf="isLastQuestion">Submit
+      </button>
+      <button class="btn btn-primary btn-md" (click)="gotoNextPage && gotoNextPage()" *ngIf="!isLastQuestion">Next
+      </button>
+    </div>
+  </div>
 </div>

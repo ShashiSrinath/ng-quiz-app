@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-quiz-overall-view',
@@ -8,13 +7,16 @@ import { AppService } from '../app.service';
 })
 export class QuizOverallViewComponent implements OnInit {
   @Input() quizNumber: number = 0;
+  @Input() currentPage: number = 0;
+  @Input() gotoPage?: (page: number) => void;
 
-  constructor(public appService: AppService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   clickQuestion() {
-    console.log(this.quizNumber);
-    this.appService.gotoPage(this.quizNumber);
+    if (this.gotoPage) {
+      this.gotoPage(this.quizNumber);
+    }
   }
 }

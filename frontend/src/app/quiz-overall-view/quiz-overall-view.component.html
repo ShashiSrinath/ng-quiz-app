@@ -1,7 +1,7 @@
 <div
   class="container div-btn"
   [ngClass]="
-    quizNumber === appService.currentPageIndex ? 'bg-success' : 'bg-secondary'
+    quizNumber === currentPage ? 'bg-success' : 'bg-secondary'
   "
   (click)="clickQuestion()"
 >
