@@ -7,7 +7,10 @@ export type CreateAnswerSheetDTO = {
 };
 
 export const createAnswerSheetSchema = {
-    quizId: Joi.string().required(),
+    quizId: Joi.string()
+        .regex(/^[0-9a-fA-F]{24}$/)
+        .message('Invalid quiz id')
+        .required(),
     passcode: Joi.string().required(),
     userCode: Joi.string().required(),
 };

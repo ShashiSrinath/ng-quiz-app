@@ -52,6 +52,8 @@ app.use((err, req, res, _next) => {
         res.status(err.status).send(err.toJSON());
     } else if (err instanceof SyntaxError && 'body' in err) {
         res.status(400).send(err);
+    } else if (err.name === 'CastError') {
+        res.status(400).send('Invalid object id');
     } else {
         logger.error(err);
         res.status(500).send(
