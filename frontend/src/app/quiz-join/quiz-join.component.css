@@ -41,3 +41,7 @@
 .container {
     padding: 5em;
 }
+
+.container-fluid {
+    height: 80vh;
+}

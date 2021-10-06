@@ -1,0 +1,18 @@
+.btn {
+    width: 100px;
+}
+
+i{
+    /* color: #000; */
+    font-size: 40px;
+}
+
+/* .container-fluid {
+    background-image: linear-gradient(to left, rgb(210, 235, 255),
+    #f0f0f0);
+} */
+
+.badge {
+    color: white;
+    font-weight: normal;
+}

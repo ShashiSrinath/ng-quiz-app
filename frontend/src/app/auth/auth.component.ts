@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AppService } from '../app.service';
 
@@ -11,7 +12,7 @@ export class AuthComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private apiService: ApiService, private appService: AppService) { }
+  constructor(private apiService: ApiService, private appService: AppService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class AuthComponent implements OnInit {
     this.apiService.login(this.email, this.password).subscribe(
       data => {
         this.appService.user = data.id;
+        this.router.navigate(["dashboard"]);
         console.log(data);
       }, error => {
         console.log("error");
