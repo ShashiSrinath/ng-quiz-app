@@ -5,9 +5,9 @@
   "scripts": {
     "clean": "rimraf frontend/dist & rimraf server/build",
     "prebuild:fontend": "npm install --prefix frontend/",
-    "build:fontend": " npm run build --prefix frontend/",
+    "build:fontend": "cd frontend & npm run build",
     "prebuild:server": "npm install --prefix server/",
-    "build:server": "npm run build --prefix server/",
+    "build:server": "cd server & npm run build",
     "prebuild": "npm run clean",
     "build": "concurrently \"npm run build:fontend\"  \"npm run build:server\"",
     "start": "npm run start --prefix server/"
