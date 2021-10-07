@@ -11,6 +11,14 @@ export class AppComponent {
   title = 'Sample Quiz';
 
   constructor(public appService: AppService, private apiService: ApiService) {
-    apiService.checkAuth().subscribe();
+    apiService.checkAuth().subscribe(
+      data => {
+        this.appService.setUser({id:data.id, email: data.email});
+        console.log(data);
+      }, error => {
+        localStorage.removeItem("user");
+        console.log(error);
+      }
+    );
   }
 }

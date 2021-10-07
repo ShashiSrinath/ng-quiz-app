@@ -12,6 +12,8 @@ export class AuthComponent implements OnInit {
   email: string = '';
   password: string = '';
   isOpenRegisterForm: boolean = false;
+  isClick: boolean = false;
+  isRegisterFail: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -25,8 +27,9 @@ export class AuthComponent implements OnInit {
   login() {
     this.apiService.login(this.email, this.password).subscribe(
       (data) => {
-        this.appService.user = data.id;
-        this.router.navigate(['dashboard']);
+        //@ts-ignore
+        this.appService.setUser({id:data.id, email: data.email});
+        this.router.navigate(["dashboard"]);
         console.log(data);
       },
       (error) => {
@@ -37,19 +40,23 @@ export class AuthComponent implements OnInit {
 
   // call register API
   register() {
+    this.isClick = true;
     this.apiService.register(this.email, this.password).subscribe(
       (data) => {
-        this.appService.user = data.id;
         console.log(data);
         this.isOpenRegisterForm = false;
         console.log('register successfull');
         this.email = '';
         this.password = '';
+        this.isRegisterFail = false;
       },
       (error) => {
+        this.isRegisterFail = true;
         console.log('register error');
       }
     );
+    // setTimeout(function() { alert("my message"); }, time);
+    setTimeout(() => {this.isClick = false}, 2000);
   }
 
   // switch among login and register form

@@ -15,6 +15,9 @@
                     </span>
                     <input type="password" class="form-control custom-input" id="passcode" placeholder="Password" [(ngModel)]="password" name="password">
                 </div>
+                <div [class]="isRegisterFail?'alert alert-danger':'alert alert-success'" *ngIf="isClick">
+                    {{isRegisterFail?"Somthing went wrong, try again!":"User register successful!"}}
+                </div>
                 <div class="form-group d-flex justify-content-center align-items-center m-0 flex-column" *ngIf="!isOpenRegisterForm">
                     <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow mt-3" (click)="login()">Login</button>
                     <p class="text-light mt-3">New User? <a class="text-decoration-none text-dark" role="button" (click)="switchForms('register')">Register</a> here.</p>

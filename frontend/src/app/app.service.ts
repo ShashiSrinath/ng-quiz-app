@@ -5,7 +5,17 @@ import { Question, Result } from './types';
   providedIn: 'root',
 })
 export class AppService {
-  user?: string;
+  user?: {id: string, email: string};
 
-  constructor() {}
+  constructor() {
+    const userStr = localStorage.getItem("user");
+    if (userStr) {
+      this.user = JSON.parse(userStr);
+    }
+  }
+
+  setUser(data: {id: string, email: string}) {
+    localStorage.setItem("user", JSON.stringify(data));
+    this.user = data;
+  }
 }

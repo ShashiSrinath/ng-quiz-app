@@ -11,3 +11,12 @@
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     border-radius: 5px;
 }
+
+.badge {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.quizBadge {
+    width: 100px;;
+}

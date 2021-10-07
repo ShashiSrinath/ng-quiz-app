@@ -10,9 +10,6 @@ const live_server = environment.API_SERVER;
 })
 export class ApiService {
   constructor(private http: HttpClient, private appService: AppService) {
-    this.checkAuth().subscribe((data) => {
-      appService.user = data.id;
-    });
   }
 
   // login user
@@ -27,8 +24,9 @@ export class ApiService {
 
   // logout user
   public logout() {
+    localStorage.removeItem("user");
     const url = live_server + 'auth/logout';
-    return this.http.post(url, { withCredentials: true });
+    return this.http.post(url, {},  { withCredentials: true });
   }
 
   // register user
