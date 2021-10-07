@@ -27,6 +27,7 @@ export class QuizJoinComponent implements OnInit {
     if (this.attendForm.valid) {
       this.apiService.attendQuiz(this.attendForm.value).subscribe(
         (data) => {
+          console.log(data);
           this.router.navigate([`quiz/${data.quizId}`]);
         },
         (err) => {

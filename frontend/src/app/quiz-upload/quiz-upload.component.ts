@@ -14,7 +14,7 @@ export class QuizUploadComponent implements OnInit {
   // repasscode: string="";
   file?: File;
 
-    quizID?: string;
+  quizID?: string;
 
   fileUpload = new FormGroup({
     name: new FormControl("", Validators.required),

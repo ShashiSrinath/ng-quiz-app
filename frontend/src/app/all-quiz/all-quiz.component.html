@@ -6,13 +6,13 @@
 <!-- quiz -->
 <div class="container-fluid">
   <div class="row" *ngIf="!result">
-    <div class="col-10">
+    <div class="col-9 mt-0 mb-3 question-area">
       <div class="container p-3">
         <div *ngIf="questions[currentQuizIndex].type === 'text'">
           <app-text-quiz [question]="questions[currentQuizIndex]"></app-text-quiz>
         </div>
         <div *ngIf="questions[currentQuizIndex].type === 'mcq'">
-          <app-mcq [question]="questions[currentQuizIndex]" (onAnswerSelected)="onAnswerSelected($event)"></app-mcq>
+          <app-mcq [question]="questions[currentQuizIndex]" [title]="quiz?.title" (onAnswerSelected)="onAnswerSelected($event)"></app-mcq>
         </div>
       </div>
       <div class="container">
@@ -24,14 +24,15 @@
         </div>
       </div>
     </div>
-    <div class="col-2">
-      <div>
-        <h1>Questions</h1>
-      </div>
-      <div>
-        <div class="d-flex question-wrap">
-          <app-quiz-overall-view *ngFor="let q of questions; let i = index"
-                                 [quizNumber]="i" [gotoPage]="gotoPage" [currentPage]="currentQuizIndex"></app-quiz-overall-view>
+    <div class="col-3">
+      <div class="p-3">
+        <div>
+          <h3 class="text-center">Questions</h3>
+        </div>
+        <div>
+          <div class="d-flex question-wrap">
+            <app-quiz-overall-view *ngFor="let q of questions; let i = index" [quizNumber]="i" [gotoPage]="gotoPage" [currentPage]="currentQuizIndex"></app-quiz-overall-view>
+          </div>
         </div>
       </div>
     </div>
