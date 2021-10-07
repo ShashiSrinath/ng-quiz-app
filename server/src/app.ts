@@ -1,6 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import logger from './utils/logger';
 import session from 'express-session';
+import path from 'path';
 import cors from 'cors';
 import { SESSION_MAX_AGE, SESSION_SECRET } from './config';
 import { httpLogger } from './middlewares/http-logger';
@@ -45,6 +46,23 @@ declare module 'express-session' {
 
 // use router
 app.use(router);
+
+// serve angular build files
+const ngDir = path.join(
+    __dirname,
+    '..',
+    '..',
+    'frontend',
+    'dist',
+    'ng-quiz-app'
+);
+console.log(ngDir);
+app.use(express.static(ngDir));
+
+/* GET Angular App */
+app.get(['/', '/*'], function (req, res, next) {
+    res.sendFile(path.join(ngDir, 'index.html'));
+});
 
 //error handler
 app.use((err: Error, req, res, _next) => {
