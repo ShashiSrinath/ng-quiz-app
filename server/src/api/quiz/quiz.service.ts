@@ -93,6 +93,11 @@ async function getQuizAsOwner(userId: string, quizId: string) {
     return quiz;
 }
 
+async function getMyQuizes(userID: string) {
+    // @ts-ignore
+    return QuizModel.find({ author: userID });
+}
+
 async function downloadReport(userId: string, quizId: string) {
     const quiz = await QuizModel.findById(quizId)
         .populate('questions')
@@ -130,4 +135,5 @@ export default {
     getQuizAsOwner,
     getQuizAsStudent,
     downloadReport,
+    getMyQuizes,
 };

@@ -72,6 +72,16 @@ router.get('/as-owner/:quizId', AuthGuard, async (req, res, next) => {
     }
 });
 
+router.get('/get-my-quizes', AuthGuard, async (req, res, next) => {
+    try {
+        const userId = req.session.user.id;
+        const quiz = await quizService.getMyQuizes(userId);
+        res.status(200).json(quiz);
+    } catch (e) {
+        next(e);
+    }
+});
+
 router.get('/download-report/:quizId', AuthGuard, async (req, res, next) => {
     try {
         const quizId = req.params.quizId;
