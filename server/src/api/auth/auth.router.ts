@@ -12,6 +12,7 @@ router.get('/check', AuthGuard, (req, res) => {
         status: 200,
         message: 'Authorized',
         id: req.session.user.id,
+        email: req.session.user.email,
     });
 });
 
