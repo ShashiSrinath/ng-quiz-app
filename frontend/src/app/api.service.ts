@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppService } from './app.service';
 import { AnswerSheet, Quiz, Result } from './types';
-
-const live_server = 'http://localhost:3000/api/';
+import { environment } from '../environments/environment';
+const live_server = environment.API_SERVER;
 
 @Injectable({
   providedIn: 'root',

@@ -1,0 +1,19 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "quiz web app built using angular and nodejs",
+  "scripts": {
+    "clean": "rimraf frontend/dist & rimraf server/build",
+    "prebuild:fontend": "npm install --prefix frontend/",
+    "build:fontend": " npm run build --prefix frontend/",
+    "prebuild:server": "npm install --prefix server/",
+    "build:server": "npm run build --prefix server/",
+    "prebuild": "npm run clean",
+    "build": "concurrently \"npm run build:fontend\"  \"npm run build:server\"",
+    "start": "npm run start --prefix server/"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "rimraf": "^3.0.2"
+  }
+}
