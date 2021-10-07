@@ -5,6 +5,7 @@ import { HttpValidationError } from '../../lib/http-validation-error';
 import { fileUpload } from '../../lib/local-file-upload';
 import createQuizXlsxDto from './dto/create-quiz-xlsx.dto';
 import { AuthGuard } from '../auth/auth.guard';
+import stream from 'node:stream';
 
 const router = Router();
 
@@ -66,6 +67,29 @@ router.get('/as-owner/:quizId', AuthGuard, async (req, res, next) => {
         const quiz = await quizService.getQuizAsOwner(userId, quizId);
 
         res.status(200).json(quiz);
+    } catch (e) {
+        next(e);
+    }
+});
+
+router.get('/download-report/:quizId', AuthGuard, async (req, res, next) => {
+    try {
+        const quizId = req.params.quizId;
+        const userId = req.session.user.id;
+        const { reportBuffer, name } = await quizService.downloadReport(
+            userId,
+            quizId
+        );
+
+        const fileContents = Buffer.from(reportBuffer, 'base64');
+
+        const readStream = new stream.PassThrough();
+        readStream.end(fileContents);
+
+        res.set('Content-disposition', 'attachment; filename=' + name);
+        res.set('Content-Type', 'text/plain');
+
+        readStream.pipe(res);
     } catch (e) {
         next(e);
     }
