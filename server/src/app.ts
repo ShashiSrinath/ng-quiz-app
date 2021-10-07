@@ -47,7 +47,7 @@ declare module 'express-session' {
 app.use(router);
 
 //error handler
-app.use((err, req, res, _next) => {
+app.use((err: Error, req, res, _next) => {
     if (err instanceof HttpError) {
         res.status(err.status).send(err.toJSON());
     } else if (err instanceof SyntaxError && 'body' in err) {
@@ -55,7 +55,7 @@ app.use((err, req, res, _next) => {
     } else if (err.name === 'CastError') {
         res.status(400).send('Invalid object id');
     } else {
-        logger.error(err);
+        logger.error(err.message);
         res.status(500).send(
             process.env.NODE_ENV === 'development'
                 ? err
