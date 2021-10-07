@@ -15,7 +15,7 @@
             <p class="mb-1"><span class="badge bg-primary quizBadge">Quiz ID</span>&emsp;{{quiz._id}}</p>
             <p class="mt-0"><span class="badge bg-primary quizBadge">Passcode</span>&emsp;{{quiz.passcode}}</p>
           </div>
-          <a href="http://localhost:3000/api/quiz/download-report/{{quiz._id}}">
+          <a href= "{{serverURL}}quiz/download-report/{{quiz._id}}">
             <span class="badge bg-primary p-2" role="button">Download Report&emsp;<i class="bi bi-cloud-arrow-down-fill text-dark"></i></span>
           </a>
           </div>

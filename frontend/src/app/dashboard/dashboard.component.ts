@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,7 @@ import { ApiService } from '../api.service';
 })
 export class DashboardComponent implements OnInit {
   quizs: any;
+  serverURL = "http://localhost:3000/api/";
 
   constructor(private apiService: ApiService) {}
 
