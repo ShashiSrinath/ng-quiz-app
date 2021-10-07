@@ -2,7 +2,7 @@
     <div class="container bg-white shadow">
         <div class="d-flex justify-content-center align-items-center">
             <form class="text-center w-50" action="#" method="POST">
-                <h2 class="text-center mb-4 text-light">Login</h2>
+                <h2 class="text-center mb-4 text-light">{{isOpenRegisterForm?'Register':'Login'}}</h2>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-transparent text-light">
                         <i class="bi bi-person-lines-fill"></i>
@@ -15,9 +15,13 @@
                     </span>
                     <input type="password" class="form-control custom-input" id="passcode" placeholder="Password" [(ngModel)]="password" name="password">
                 </div>
-                <div class="form-group d-flex justify-content-between align-items-center m-0">
-                    <button type="submit" class="btn btn-dark rounded-0 w-50 p-2 shadow mt-3" (click)="login()">Login</button>&nbsp;
-                    <button type="submit" class="btn btn-dark rounded-0 w-50 p-2 shadow mt-3" (click)="register()">Register</button>
+                <div class="form-group d-flex justify-content-center align-items-center m-0 flex-column" *ngIf="!isOpenRegisterForm">
+                    <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow mt-3" (click)="login()">Login</button>
+                    <p class="text-light mt-3">New User? <a class="text-decoration-none text-dark" role="button" (click)="switchForms('register')">Register</a> here.</p>
+                </div>
+                <div class="form-group d-flex justify-content-center align-items-center m-0 flex-column" *ngIf="isOpenRegisterForm">
+                    <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow mt-3" (click)="register()">Register</button>
+                    <p class="text-light mt-3">Already a user? <a class="text-decoration-none text-dark" role="button" (click)="switchForms('login')">Login</a> here.</p>
                 </div>
             </form>
         </div>
