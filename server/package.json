@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc",
     "clean": "rm -rf ./build",
     "build": "tsc",
     "start": "node ./build/index.js",
