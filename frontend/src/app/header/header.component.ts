@@ -9,14 +9,19 @@ import { AppService } from '../app.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() email: string | undefined;
+  email: string = '';
   constructor(
     private apiService: ApiService,
     private router: Router,
     private appService: AppService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService.checkAuth().subscribe((data) => {
+      this.email = data.email;
+      console.log(data);
+    });
+  }
 
   onClickLogout() {
     this.apiService.logout().subscribe();

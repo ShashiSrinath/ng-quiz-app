@@ -8,14 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  email: string = '';
+  constructor() {}
 
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit(): void {
-    this.apiService.checkAuth().subscribe((data) => {
-      this.email = data.email;
-      console.log(data);
-    });
-  }
+  ngOnInit(): void {}
 }
