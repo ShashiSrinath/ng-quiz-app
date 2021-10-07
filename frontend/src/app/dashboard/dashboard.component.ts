@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class DashboardComponent implements OnInit {
   quizs: any;
-  serverURL = "http://localhost:3000/api/";
+  serverURL = environment.API_SERVER;
 
   constructor(private apiService: ApiService) {}
 
