@@ -25,6 +25,12 @@ export class ApiService {
     );
   }
 
+  // logout user
+  public logout() {
+    const url = live_server + 'auth/logout';
+    return this.http.post(url, { withCredentials: true });
+  }
+
   // register user
   public register(email: string, password: string) {
     let url = live_server + 'auth/register';
@@ -43,7 +49,9 @@ export class ApiService {
 
   public checkAuth() {
     let url = live_server + 'auth/check';
-    return this.http.get<{ id: string }>(url, { withCredentials: true });
+    return this.http.get<{ id: string; email: string }>(url, {
+      withCredentials: true,
+    });
   }
 
   public attendQuiz(data: {
@@ -76,4 +84,6 @@ export class ApiService {
     let url = live_server + 'answer-sheet/finish-answer-sheet';
     return this.http.post<Result>(url, {}, { withCredentials: true });
   }
+
+  public getQuizezByUserId(userCode: string) {}
 }

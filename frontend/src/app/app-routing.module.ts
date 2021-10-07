@@ -10,13 +10,17 @@ import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
 import { AllQuizComponent } from './all-quiz/all-quiz.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'attend', component: QuizJoinComponent },
   { path: 'upload', component: QuizUploadComponent, canActivate: [AuthGuard] },
   { path: 'auth', component: AuthComponent },
   { path: 'quiz/:id', component: AllQuizComponent },
-{path: "dashboard", component: DashboardComponent},
-{path: "mcq", component: McqComponent}
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'mcq', component: McqComponent },
 ];
 
 @NgModule({

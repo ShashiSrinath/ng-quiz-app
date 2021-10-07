@@ -1,17 +1,25 @@
- <div class="container-fluid p-0">
-    <app-header></app-header>
-    <div class="conatiner-fluid my-5">
-        <app-quiz-upload></app-quiz-upload>
+<div class="container-fluid p-0">
+  <app-header [email]="email"></app-header>
+  <div class="conatiner-fluid my-5">
+    <app-quiz-upload></app-quiz-upload>
+  </div>
+  <div class="container-fluid my-5">
+    <div class="container p-0">
+      <h3 class="text-center mt-3 mb-3">Uploaded Quizes</h3>
+      <div class="list-group list-group-flush">
+        <a routerLink="/mcq" class="list-group-item list-group-item-action"
+          >The current link item</a
+        >
+        <a href="#" class="list-group-item list-group-item-action"
+          >A second link item</a
+        >
+        <a href="#" class="list-group-item list-group-item-action"
+          >A third link item</a
+        >
+        <a href="#" class="list-group-item list-group-item-action"
+          >A fourth link item</a
+        >
+      </div>
     </div>
-    <div class="container-fluid my-5">
-        <div class="container p-0">
-            <h3 class="text-center mt-3 mb-3">Uploaded Quizes</h3>
-            <div class="list-group list-group-flush">
-                <a routerLink="/mcq" class="list-group-item list-group-item-action">The current link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
