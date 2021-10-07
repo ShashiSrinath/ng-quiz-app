@@ -10,9 +10,6 @@ const live_server = environment.API_SERVER;
 })
 export class ApiService {
   constructor(private http: HttpClient, private appService: AppService) {
-    this.checkAuth().subscribe((data) => {
-      appService.user = data.id;
-    });
   }
 
   // login user
@@ -23,6 +20,13 @@ export class ApiService {
       { email: email, password: password },
       { withCredentials: true }
     );
+  }
+
+  // logout user
+  public logout() {
+    localStorage.removeItem("user");
+    const url = live_server + 'auth/logout';
+    return this.http.post(url, {},  { withCredentials: true });
   }
 
   // register user
@@ -43,7 +47,9 @@ export class ApiService {
 
   public checkAuth() {
     let url = live_server + 'auth/check';
-    return this.http.get<{ id: string }>(url, { withCredentials: true });
+    return this.http.get<{ id: string; email: string }>(url, {
+      withCredentials: true,
+    });
   }
 
   public attendQuiz(data: {
@@ -75,5 +81,10 @@ export class ApiService {
   public submitAnswerSheet() {
     let url = live_server + 'answer-sheet/finish-answer-sheet';
     return this.http.post<Result>(url, {}, { withCredentials: true });
+  }
+
+  public getMyQuizes() {
+    const url = live_server + 'quiz/get-my-quizes';
+    return this.http.get(url, { withCredentials: true });
   }
 }

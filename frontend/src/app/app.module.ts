@@ -17,6 +17,7 @@ import { QuizUploadComponent } from './quiz-upload/quiz-upload.component';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AllQuizComponent } from './all-quiz/all-quiz.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AllQuizComponent } from './all-quiz/all-quiz.component';
     QuizUploadComponent,
     AuthComponent,
     AllQuizComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,8 @@ export class QuizUploadComponent implements OnInit {
   // repasscode: string="";
   file?: File;
 
+  quizID?: string;
+
   fileUpload = new FormGroup({
     name: new FormControl("", Validators.required),
     passcode: new FormControl("", Validators.required),
@@ -41,6 +43,8 @@ export class QuizUploadComponent implements OnInit {
       this.apiService.createQuiz(fileData).subscribe(
         data => {
           console.log(data);
+          // @ts-ignore
+          this.quizID = data._id;
         }, error => {
           console.log(error);
         }

@@ -1,17 +1,16 @@
 i{
     color: rgb(125, 22, 221);
-    font-size: 70px;
+    font-size: 40px;
 }
 
 .footer i{
 color:white;
-margin: 15px;
 }
 .footer .con{
     background:#6cf;
    color: white;
    width: 100%;
-   height: 20vh;
+   height: 10vh;
 }
 h6{
     color: white;

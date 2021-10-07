@@ -1,45 +1,47 @@
-<div class="container bg-white shadow">
-  <div class="row">
-    <div class="col-6">
-      <div class="d-flex justify-content-center align-items-center">
-        <img src="../../assets/Image/gie5rLk8T.png" class=" img rounded float-right" alt="photo">
+<div class="quiz-attend d-flex flex-column justify-content-center">
+  <div class="container bg-white shadow">
+    <div class="row">
+      <div class="col-6">
+        <div class="d-flex justify-content-center align-items-center">
+          <img src="../../assets/Image/gie5rLk8T.png" class=" img rounded float-right" alt="photo">
+        </div>
       </div>
-    </div>
-    <div class="col-6 d-flex justify-content-center align-items-center">
-      <div class="w-75">
-        <h2 class="text-center mb-4 text-light">Quizizz</h2>
-        <form class="text-center" [formGroup]="attendForm">
-          <div class="alert alert-danger" role="alert" *ngIf="error">
-            {{error}}
-          </div>
-          <div class="input-group mb-3">
-                        <span class="input-group-text bg-transparent text-light">
-                            <i class="bi bi-upc-scan"></i>
-                        </span>
-            <input type="text" class="form-control custom-input" id="quizId" placeholder="Quiz Id"
-                   formControlName="quizId">
-          </div>
-          <div class="input-group mb-3">
-                        <span class="input-group-text bg-transparent text-light">
-                            <i class="bi bi-shield-lock-fill"></i>
-                        </span>
-            <input type="password" class="form-control custom-input" id="passcode" placeholder="Pass Code"
-                   formControlName="passcode">
-          </div>
-          <div class="input-group mb-3">
-                        <span class="input-group-text bg-transparent text-light">
-                            <i class="bi bi-person-lines-fill"></i>
-                        </span>
-            <input type="text" class="form-control custom-input" id="username" placeholder="User Code"
-                   formControlName="userCode">
-          </div>
-
-          <div class="form-group d-flex justify-content-center m-0">
-            <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow mt-3" (click)="attendQuiz()">Attend
-              now!
-            </button>
-          </div>
-        </form>
+      <div class="col-6 d-flex justify-content-center align-items-center">
+        <div class="w-75">
+          <h2 class="text-center mb-4 text-light">Quizizz</h2>
+          <form class="text-center" [formGroup]="attendForm">
+            <div class="alert alert-danger" role="alert" *ngIf="error">
+              {{error}}
+            </div>
+            <div class="input-group mb-3">
+                          <span class="input-group-text bg-transparent text-light">
+                              <i class="bi bi-upc-scan"></i>
+                          </span>
+              <input type="text" class="form-control custom-input" id="quizId" placeholder="Quiz Id"
+                     formControlName="quizId">
+            </div>
+            <div class="input-group mb-3">
+                          <span class="input-group-text bg-transparent text-light">
+                              <i class="bi bi-shield-lock-fill"></i>
+                          </span>
+              <input type="password" class="form-control custom-input" id="passcode" placeholder="Pass Code"
+                     formControlName="passcode">
+            </div>
+            <div class="input-group mb-3">
+                          <span class="input-group-text bg-transparent text-light">
+                              <i class="bi bi-person-lines-fill"></i>
+                          </span>
+              <input type="text" class="form-control custom-input" id="username" placeholder="User Code"
+                     formControlName="userCode">
+            </div>
+  
+            <div class="form-group d-flex justify-content-center m-0">
+              <button type="submit" class="btn btn-dark rounded-0 w-100 p-2 shadow mt-3" (click)="attendQuiz()">Attend
+                now!
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

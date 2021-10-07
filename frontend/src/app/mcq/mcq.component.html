@@ -1,12 +1,13 @@
-<div class="mcq_quastion" *ngIf="question && question?.type==='mcq'">
-  <div class="questions">
-    <h2 class="mb-3">{{question?.question}}</h2>
-    <ul class="list-group" *ngFor="let quiz of question?.multipleChoices;let i = index">
-      <li class="list-group-item">
-        <input [id]="i" type="radio" name="options" [value]="getValueFromIndex(i)" [(ngModel)]="question.answer"
-               (ngModelChange)="onChange($event)">
-        <label class="ml-3" [htmlFor]="i">{{quiz}}</label>
-      </li>
-    </ul>
+<div class="container-fluid p-0 mb-5 mcq-questions">
+  <div class="container-fluid">
+    <h4 class="text-center">{{title|titlecase}}</h4>
+    <!-- question code block -->
+    <div class="container d-flex justify-content-center align-items-center flex-column" *ngIf="question && question?.type==='mcq'">
+      <h5 class="text-left mt-5 mb-3">{{question?.question}}</h5>
+      <div class="btn-group btn-group-vertical w-75" role="group" *ngFor="let quiz of question?.multipleChoices;let i = index">
+        <input type="radio" class="btn-check" name="options" id="btnradio1" [id]="i" [value]="getValueFromIndex(i)" [(ngModel)]="question.answer" (ngModelChange)="onChange($event)">
+        <label class="btn btn-outline-primary overflow-auto" for="btnradio1" [htmlFor]="i">{{quiz}}</label>
+      </div>
+    </div>
   </div>
 </div>

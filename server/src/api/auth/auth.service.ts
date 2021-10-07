@@ -15,6 +15,7 @@ async function login(req, data: IUser): Promise<LoginResDto> {
 
     req.session.user = {
         id: user._id,
+        email: data.email,
     };
     return {
         id: user._id,

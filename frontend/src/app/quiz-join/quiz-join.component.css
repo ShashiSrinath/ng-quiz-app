@@ -41,3 +41,7 @@
 .container {
     padding: 5em;
 }
+
+.quiz-attend {
+    height: 90vh;
+}

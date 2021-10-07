@@ -1,0 +1,22 @@
+/* .container-fluid {
+    height: 80vh;
+} */
+
+.list-group-item {
+    background-color: transparent;
+}
+
+.list-group-item:hover {
+    font-weight: bold;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    border-radius: 5px;
+}
+
+.badge {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.quizBadge {
+    width: 100px;;
+}

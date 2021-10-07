@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Question } from '../types';
+import { Question, Quiz } from '../types';
 
 @Component({
   selector: 'app-mcq',
@@ -8,11 +8,14 @@ import { Question } from '../types';
 })
 export class McqComponent implements OnInit {
   @Input() question?: Question;
+  @Input() title?: string;
   @Output() onAnswerSelected = new EventEmitter<string>();
 
   answer: string = '';
 
-  constructor() {}
+  constructor() {
+    
+  }
 
   ngOnInit(): void {}
 
