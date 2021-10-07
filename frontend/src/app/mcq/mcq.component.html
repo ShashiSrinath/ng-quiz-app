@@ -1,62 +1,21 @@
-<div class="mcq_quastion" *ngIf="question && question?.type==='mcq'">
+<div class="mcq_quastion" *ngIf="question && question?.type === 'mcq'">
   <div class="questions">
-    <h2 class="mb-3">{{question?.question}}</h2>
-    <ul class="list-group" *ngFor="let quiz of question?.multipleChoices;let i = index">
+    <h2 class="mb-3">{{ question?.question }}</h2>
+    <ul
+      class="list-group"
+      *ngFor="let quiz of question?.multipleChoices; let i = index"
+    >
       <li class="list-group-item">
-        <input [id]="i" type="radio" name="options" [value]="getValueFromIndex(i)" [(ngModel)]="question.answer"
-               (ngModelChange)="onChange($event)">
-        <label class="ml-3" [htmlFor]="i">{{quiz}}</label>
+        <input
+          [id]="i"
+          type="radio"
+          name="options"
+          [value]="getValueFromIndex(i)"
+          [(ngModel)]="question.answer"
+          (ngModelChange)="onChange($event)"
+        />
+        <label class="ml-3" [htmlFor]="i">{{ quiz }}</label>
       </li>
     </ul>
   </div>
 </div>
-
-<!-- <div class="container-fluid p-0 mb-5">
-  <app-header></app-header>
-  <div class="container-fluid">
-    <h4 class="text-center">Quiz Name: Questions & Answers</h4> -->
-    <!-- question code block -->
-    <!-- <div class="container d-flex justify-content-center align-items-center flex-column my-5">
-      <h6 class="text-left">Question goes here</h6>
-      <div class="btn-group btn-group-vertical w-75" role="group">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
-        <label class="btn btn-outline-primary overflow-auto" for="btnradio1">Radio 1</label>
-      
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
-      
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
-      </div>
-    </div>
-
-  </div>
-</div> -->
-
-<!-- <div class="container-fluid p-0 mb-5">
-  <app-header></app-header>
-  <div class="container-fluid">
-    <h4 class="text-center">Quiz Name: Questions & Answers</h4> -->
-    <!-- question code block -->
-    <!-- <div class="container d-flex justify-content-center align-items-center flex-column my-5">
-      <h6 class="text-left">Question goes here</h6>
-      <div class="btn-group btn-group-vertical w-75" role="group">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
-        <label class="btn btn-outline-primary overflow-auto" for="btnradio1">Radio 1</label>
-      
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
-      
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
-      </div>
-    </div>
-
-  </div>
-</div> -->

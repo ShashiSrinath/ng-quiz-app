@@ -85,5 +85,8 @@ export class ApiService {
     return this.http.post<Result>(url, {}, { withCredentials: true });
   }
 
-  public getQuizezByUserId(userCode: string) {}
+  public getMyQuizes() {
+    const url = live_server + 'quiz/get-my-quizes';
+    return this.http.get(url, { withCredentials: true });
+  }
 }
