@@ -48,14 +48,7 @@ async function submitSingleAnswer(
     return answerSheet.save();
 }
 
-async function finishAnswerSheet(answerSheetId: string) {
-    const answerSheet: IAnswerSheetModel = await AnswerSheetModel.findById(
-        answerSheetId
-    );
-    const quiz: IQuizModel = await QuizModel.findById(
-        answerSheet.quizId
-    ).populate('questions');
-
+function calculateResults(quiz: IQuizModel, answerSheet: IAnswerSheetModel) {
     let totalCorrectAnswers = 0;
     quiz.questions.forEach((question: IQuestion, key: string) => {
         const answer = answerSheet.answers.get(key);
@@ -63,7 +56,7 @@ async function finishAnswerSheet(answerSheetId: string) {
             totalCorrectAnswers++;
         }
     });
-    const result = {
+    return {
         totalQuestions: quiz.questions.size,
         totalAnswered: answerSheet.answers.size,
         totalCorrectAnswers,
@@ -72,6 +65,18 @@ async function finishAnswerSheet(answerSheetId: string) {
             100
         ).toFixed(2)} %`,
     };
+}
+
+async function finishAnswerSheet(answerSheetId: string) {
+    const answerSheet: IAnswerSheetModel = await AnswerSheetModel.findById(
+        answerSheetId
+    );
+    const quiz: IQuizModel = await QuizModel.findById(
+        answerSheet.quizId
+    ).populate('questions');
+
+    const result = calculateResults(quiz, answerSheet);
+
     await AnswerSheetModel.findByIdAndUpdate(answerSheetId, {
         status: 'Finished',
     });
@@ -82,4 +87,5 @@ export default {
     createAnswerSheet,
     submitSingleAnswer,
     finishAnswerSheet,
+    calculateResults,
 };
