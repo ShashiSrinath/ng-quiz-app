@@ -8,11 +8,17 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  quizs: any;
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.apiService.getMyQuizes().subscribe(
-      (data) => console.log(data),
+      (data) => {
+        console.log(data);
+        this.quizs = data;
+        console.log(this.quizs);
+      },
       (err) => console.error(err)
     );
   }
