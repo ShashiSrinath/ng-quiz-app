@@ -1,15 +1,15 @@
-#Quiz App
+# Quiz App
 
 this web applications is built using NodeJs and Angular. 
 
-##Guide
+## Guide
 
-###prerequisite
+### prerequisite
  * NodeJs
  * MongoDB
 
 
-###Installation
+### Installation
 
 * Clone the repository  
     `$ git clone https://github.com/ShashiSrinath/ng-quiz-app.git`
